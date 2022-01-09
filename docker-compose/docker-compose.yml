@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  redis:
+    image: redislabs/rejson
+    hostname: redis.specimen.${PROJECT}
+    container_name: redis.specimen.${PROJECT}
+    volumes:
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+    command: redis-server /usr/local/etc/redis/redis.conf
+
+networks:
+  default:
+    external:
+      name: ${PROJECT}

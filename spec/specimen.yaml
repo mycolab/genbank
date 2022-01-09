@@ -1,0 +1,231 @@
+openapi: 3.0.1
+info:
+  title: MycoLab Specimens API
+  description: This Specimen API synchronizes local nucleotide database with Genbank
+  termsOfService: https://mycolab.org/terms/
+  contact:
+    email: developers@mycolab.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+externalDocs:
+  description: Find out more about MycoLab
+  url: https://mycolab.org
+servers:
+- url: https://specimen.mycolab.org/v1
+tags:
+- name: specimens
+  description: MycoLab specimens
+  externalDocs:
+    description: Find out more
+    url: https://mycolab.org/specimens
+paths:
+  /specimen:
+    post:
+      tags:
+      - specimen
+      summary: Add a new specimen
+      operationId: api.specimen.post
+      requestBody:
+        description: Specimen object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Specimen'
+        required: true
+      responses:
+        405:
+          description: Invalid input
+          content: {}
+        '200':
+          description: Specimen Id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SpecimenId'
+      x-codegen-request-body-name: body
+  /specimen/{id}:
+    put:
+      tags:
+        - specimen
+      summary: Update an existing specimen
+      operationId: api.specimen.put
+      parameters:
+        - name: id
+          in: path
+          description: ID of specimen to return
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Specimen object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Specimen'
+        required: true
+      responses:
+        400:
+          description: Invalid ID supplied
+          content: { }
+        404:
+          description: Specimen not found
+          content: { }
+        405:
+          description: Validation exception
+          content: { }
+      x-codegen-request-body-name: body
+    get:
+      tags:
+      - specimen
+      summary: Find specimen by ID
+      description: Returns a single specimen
+      operationId: api.specimen.get
+      parameters:
+      - name: id
+        in: path
+        description: ID of specimen to return
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Specimen'
+        400:
+          description: Invalid ID supplied
+          content: {}
+        404:
+          description: Specimen not found
+          content: {}
+    delete:
+      tags:
+      - specimen
+      summary: Deletes a specimen
+      operationId: api.specimen.delete
+      parameters:
+      - name: id
+        in: path
+        description: Specimen id to delete
+        required: true
+        schema:
+          type: string
+      responses:
+        400:
+          description: Invalid ID supplied
+          content: {}
+        404:
+          description: Sequence not found
+          content: {}
+components:
+  schemas:
+    SpecimenId:
+      type: object
+      properties:
+        id:
+          type: string
+          example: a8eba8c71ab9943734bbe744a61afacc
+    Observations:
+      type: object
+      properties:
+        inaturalist:
+          type: integer
+          example: 87342096
+        mushroomobserver:
+          type: integer
+          example: 354593
+        genbank:
+          type: string
+          example: MK373018.1
+    Coordinates:
+      type: object
+      properties:
+        longitude:
+          type: string
+          example: "-124.002361"
+        latitude:
+          type: string
+          example: "41.154688"
+    Location:
+      type: object
+      properties:
+        coordinates:
+          $ref: '#/components/schemas/Coordinates'
+        country:
+          type: string
+          example: "United States"
+        state:
+          type: string
+          example: "California"
+        county:
+          type: string
+          example: "Humboldt County"
+    Taxonomy:
+      type: object
+      properties:
+        life:
+          type: string
+          example: Prokaryota
+        domain:
+          type: string
+          example: Eukaryota
+        kingdom:
+          type: string
+          example: Fungi
+        subkingdom:
+          type: string
+          example: Dikarya
+        phylum:
+          type: string
+          example: Ascomycota
+        subphylum:
+          type: string
+          example: Pezizomycotina
+        class:
+          type: string
+          example: Leotiomycetes
+        order:
+          type: string
+          example: Rhytismatales
+        family:
+          type: string
+          example: Cudoniaceae
+        genus:
+          type: string
+          example: Cudonia
+        species:
+          type: string
+          example: Confusa
+    Specimen:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          example: Cudonia Confusa
+        stage:
+          type: string
+          example: A5
+        date:
+          type: string
+          format: date-time
+        sequence:
+          type: string
+          example: ACTAtGttGCCTtGGCAGGCTGGCAGCAGCCTGCCGGTGGACCTCAACTCTTGAATCTCTGCtGTCTGAGTACTATATAATAGTTAAAACTTTCAACAACGGATCTCTTGGTTCTGGCATCGATGAAGAACGCAGCGAAATGCGATAAGTAATGTGAATTGCAGAATTCAGTGAATCATCGAATCTTTGAACGCACATTGCGCCCTCTGGTATTCCAGGGGGCATGCCTGTTCGAGCGTCATTACAACCCTCACGCCTAGCGTGGTCTTGGGCTCGCCCTGTAGGGCCTGCCTCAAAGTCAGTGGCGGCGTCATCTGACCCCTAAGCGTAGTAACATACACCTCGCTTTTGGGCGCTGGATGGAGGCCTGCTATGAACCCCCCATTTTACAGGTTGACCTCGGATCAGGTAGGGATACCCGCTGAACTTAAG
+        taxonomy:
+          $ref: '#/components/schemas/Taxonomy'
+        observations:
+          $ref: '#/components/schemas/Observations'
+        location:
+          $ref: '#/components/schemas/Location'
+        status:
+          type: string
+          description: Specimen status
+          enum:
+          - classified
+          - unclassified
