@@ -1,6 +1,7 @@
 FROM us-west2-docker.pkg.dev/micro-shoreline-333018/images/ncbi-blast:latest
 ENV DEBIAN_FRONTEND="noninteractive"
 
+# install requirements
 RUN apt clean
 RUN apt-get update \
  && apt-get install -y build-essential git libtool-bin autopoint autotools-dev autoconf pkg-config \
