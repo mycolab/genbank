@@ -47,7 +47,7 @@ jobs:
         gcloud auth configure-docker $REGISTRY --quiet
 
     - name: Build Docker Image
-      run: docker build -t $IMAGE_NAME:latest .
+      run: docker build --build-arg REPOSITORY=${REPOSITORY} -t $IMAGE_NAME:latest .
 
     - name: Push Docker Image to Artifact Registry
       env:

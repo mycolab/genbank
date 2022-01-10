@@ -2,9 +2,9 @@ version: '3.1'
 
 services:
   redis:
-    image: redislabs/rejson
-    hostname: redis.specimen.${PROJECT}
-    container_name: redis.specimen.${PROJECT}
+    image: docreg.kailash.windstream.net/redislabs/rejson:1.0.0
+    hostname: redis.${PROJECT}
+    container_name: redis.${PROJECT}
     volumes:
       - ./redis.conf:/usr/local/etc/redis/redis.conf
     command: redis-server /usr/local/etc/redis/redis.conf

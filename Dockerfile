@@ -1,4 +1,5 @@
-FROM us-west2-docker.pkg.dev/micro-shoreline-333018/images/ncbi-blast:latest
+ARG REPOSITORY
+FROM $REPOSITORY/ncbi-blast:latest
 ENV DEBIAN_FRONTEND="noninteractive"
 
 # install requirements
