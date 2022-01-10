@@ -15,3 +15,4 @@ WORKDIR /app
 
 # start container
 ENTRYPOINT ["python3", "app.py"]
+
