@@ -94,13 +94,13 @@ paths:
       responses:
         400:
           description: Invalid ID supplied
-          content: { }
+          content: {}
         404:
           description: Sequence not found
-          content: { }
+          content: {}
         405:
           description: Validation exception
-          content: { }
+          content: {}
       x-codegen-request-body-name: body
     get:
       tags:
@@ -250,7 +250,7 @@ components:
           $ref: '#/components/schemas/FASTAMatch'
     Query:
       required:
-      - FASTA
+      - sequence
       type: object
       properties:
         sequence:
@@ -265,7 +265,7 @@ components:
           example: 98.5
         location:
           type: boolean
-          description: Enrich results with location details
+          description: Enrich FASTA descriptions with location details
           example: true
     Sequence:
       required:
