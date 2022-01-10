@@ -1,3 +1,12 @@
+## [0.1.6](https://github.com/mycolab/genbank/compare/v0.1.5...v0.1.6) (2022-01-10)
+
+
+### Bug Fixes
+
+* **api:** renamed api module from genbank to sequence ([3d80615](https://github.com/mycolab/genbank/commit/3d806155d38b5125570b07a594a33d6070525b09))
+
+
+
 ## [0.1.5](https://github.com/mycolab/genbank/compare/v0.1.4...v0.1.5) (2022-01-10)
 
 
@@ -31,16 +40,6 @@
 ### Bug Fixes
 
 * **spec:** removed commented GET section ([cd1e0b9](https://github.com/mycolab/genbank/commit/cd1e0b9153de08ce864b52b6f8dee2a3e29bd7b7))
-
-
-
-## [0.1.1](https://github.com/mycolab/genbank/compare/v0.1.0...v0.1.1) (2022-01-10)
-
-
-### Bug Fixes
-
-* **schema:** initial schema ([4950436](https://github.com/mycolab/genbank/commit/495043607a874f640090f49bc19d9e4eafa1e136))
-* **schema:** initial schema ([2e29356](https://github.com/mycolab/genbank/commit/2e29356828c0d407f62dc471c05e763b98703409))
 
 
 
