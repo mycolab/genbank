@@ -1,3 +1,12 @@
+## [0.1.4](https://github.com/mycolab/genbank/compare/v0.1.3...v0.1.4) (2022-01-10)
+
+
+### Bug Fixes
+
+* **ci:** master branch build ([e775f71](https://github.com/mycolab/genbank/commit/e775f71a7c495aa2f117dd8e8139f073f71dc2dc))
+
+
+
 ## [0.1.3](https://github.com/mycolab/genbank/compare/v0.1.2...v0.1.3) (2022-01-10)
 
 
