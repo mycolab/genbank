@@ -1,0 +1,325 @@
+openapi: 3.0.1
+info:
+  title: MycoLab Genbank API
+  description: Genbank API for searching and submitting sequences
+  termsOfService: https://mycolab.org/terms/
+  contact:
+    email: developers@mycolab.org
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+externalDocs:
+  description: Find out more about MycoLab
+  url: https://mycolab.org
+servers:
+- url: https://blast.mycolab.org/v1
+tags:
+- name: sequences
+  description: MycoLab sequences
+  externalDocs:
+    description: Find out more
+    url: https://mycolab.org/sequences
+paths:
+  /sequences:
+    post:
+      tags:
+      - sequences
+      summary: Submit a FASTA query
+      operationId: api.sequence.query
+      requestBody:
+        description: Sequence object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Query'
+        required: true
+      responses:
+        405:
+          description: Invalid input
+          content: {}
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FASTARecord'
+      x-codegen-request-body-name: body
+  # /sequences/{sequence}:
+  #   get:
+  #     tags:
+  #     - sequences
+  #     summary: Find all exact matching sequences by FASTA sequence
+  #     description: Returns an array of sequences
+  #     operationId: api.sequence.mget
+  #     parameters:
+  #     - name: sequence
+  #       in: path
+  #       description: ID of sequence to return
+  #       required: true
+  #       schema:
+  #         $ref: '#/components/schemas/FASTASequence'
+  #     responses:
+  #       200:
+  #         description: successful operation
+  #         content:
+  #           application/json:
+  #             schema:
+  #               type: array
+  #               items:
+  #                 $ref: '#/components/schemas/Sequence'
+  #       400:
+  #         description: Invalid ID supplied
+  #         content: {}
+  #       404:
+  #         description: Sequence not found
+  #         content: {}
+  /sequence:
+    post:
+      tags:
+      - sequence
+      summary: Add a new sequence
+      operationId: api.sequence.post
+      requestBody:
+        description: Sequence object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sequence'
+        required: true
+      responses:
+        405:
+          description: Invalid input
+          content: {}
+        '200':
+          description: Sequence Id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SequenceId'
+      x-codegen-request-body-name: body
+  /sequence/{id}:
+    put:
+      tags:
+        - sequence
+      summary: Update an existing sequence
+      operationId: api.sequence.put
+      parameters:
+        - name: id
+          in: path
+          description: ID of sequence to return
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: Sequence object
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Sequence'
+        required: true
+      responses:
+        400:
+          description: Invalid ID supplied
+          content: { }
+        404:
+          description: Sequence not found
+          content: { }
+        405:
+          description: Validation exception
+          content: { }
+      x-codegen-request-body-name: body
+    get:
+      tags:
+      - sequence
+      summary: Find sequence by ID
+      description: Returns a single sequence
+      operationId: api.sequence.get
+      parameters:
+      - name: id
+        in: path
+        description: ID of sequence to return
+        required: true
+        schema:
+          type: string
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Sequence'
+        400:
+          description: Invalid ID supplied
+          content: {}
+        404:
+          description: Sequence not found
+          content: {}
+    delete:
+      tags:
+      - sequence
+      summary: Deletes a sequence
+      operationId: api.sequence.delete
+      parameters:
+      - name: id
+        in: path
+        description: Sequence id to delete
+        required: true
+        schema:
+          type: string
+      responses:
+        400:
+          description: Invalid ID supplied
+          content: {}
+        404:
+          description: Sequence not found
+          content: {}
+components:
+  schemas:
+    SequenceId:
+      type: object
+      properties:
+        id:
+          type: string
+          example: a8eba8c71ab9943734bbe744a61afacc
+    Observations:
+      type: object
+      description: External observation links
+      properties:
+        inaturalist:
+          type: integer
+          example: 87342096
+        mushroomobserver:
+          type: integer
+          example: 354593
+        genbank:
+          type: string
+          example: MK373018.1
+    Coordinates:
+      type: object
+      description: Longitude and Latitude where specimen was collected
+      properties:
+        longitude:
+          type: string
+          example: "-124.002361"
+        latitude:
+          type: string
+          example: "41.154688"
+    Location:
+      type: object
+      description: Location where specimen was collected
+      properties:
+        coordinates:
+          $ref: '#/components/schemas/Coordinates'
+        country:
+          type: string
+          example: "United States"
+        state:
+          type: string
+          example: "California"
+        county:
+          type: string
+          example: "Humboldt County"
+    Taxonomy:
+      type: object
+      properties:
+        life:
+          type: string
+          example: Prokaryota
+        domain:
+          type: string
+          example: Eukaryota
+        kingdom:
+          type: string
+          example: Fungi
+        subkingdom:
+          type: string
+          example: Dikarya
+        phylum:
+          type: string
+          example: Ascomycota
+        subphylum:
+          type: string
+          example: Pezizomycotina
+        class:
+          type: string
+          example: Leotiomycetes
+        order:
+          type: string
+          example: Rhytismatales
+        family:
+          type: string
+          example: Cudoniaceae
+        genus:
+          type: string
+          example: Cudonia
+        species:
+          type: string
+          example: Confusa
+    FASTASequence:
+      type: string
+      description: Sequence in FASTA format
+      example: ACTAtGttGCCTtGGCAGGCTGGCAGCAGCCTGCCGGTGGACCTCAACTCTTGAATCTCTGCtGTCTGAGTACTATATAATAGTTAAAACTTTCAACAACGGATCTCTTGGTTCTGGCATCGATGAAGAACGCAGCGAAATGCGATAAGTAATGTGAATTGCAGAATTCAGTGAATCATCGAATCTTTGAACGCACATTGCGCCCTCTGGTATTCCAGGGGGCATGCCTGTTCGAGCGTCATTACAACCCTCACGCCTAGCGTGGTCTTGGGCTCGCCCTGTAGGGCCTGCCTCAAAGTCAGTGGCGGCGTCATCTGACCCCTAAGCGTAGTAACATACACCTCGCTTTTGGGCGCTGGATGGAGGCCTGCTATGAACCCCCCATTTTACAGGTTGACCTCGGATCAGGTAGGGATACCCGCTGAACTTAAG
+    FASTAMatch:
+      type: number
+      description: Match accuracy
+      example: 97.4
+    FASTARecord:
+      type: object
+      properties:
+        description:
+          type: string
+          description: Comment line of FASTA
+          example: Catathelasma ventricosum s.s. Arkansas iNat 102798039
+        sequence:
+          $ref: '#/components/schemas/FASTASequence'
+        match:
+          $ref: '#/components/schemas/FASTAMatch'
+    Query:
+      required:
+      - FASTA
+      type: object
+      properties:
+        sequence:
+          $ref: '#/components/schemas/FASTASequence'
+        results:
+          type: integer
+          description: Maximum number of search results
+          example: 100
+        match:
+          type: number
+          description: Minimum match accuracy (i.e. "percent identity")
+          example: 98.5
+        location:
+          type: boolean
+          description: Enrich results with location details
+          example: true
+    Sequence:
+      required:
+      - name
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of species
+          example: Cudonia Confusa
+        date:
+          type: string
+          description: Datetime of sequence submission
+          format: date-time
+        sequence:
+          $ref: '#/components/schemas/FASTASequence'
+        taxonomy:
+          $ref: '#/components/schemas/Taxonomy'
+        observations:
+          $ref: '#/components/schemas/Observations'
+        location:
+          $ref: '#/components/schemas/Location'
+
+
+
+
+
+

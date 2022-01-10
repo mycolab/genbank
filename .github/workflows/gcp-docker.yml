@@ -1,0 +1,59 @@
+---
+name: Build and Push Python Image to Google Cloud Platform
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-push-gcr:
+    name: Build and Push to GCP
+    runs-on: ubuntu-latest
+    env:
+      IMAGE_NAME: ${{ github.event.repository.name }}
+      REGISTRY: ${{ secrets.GOOGLE_REGISTRY }}
+      REPOSITORY: ${{ secrets.GOOGLE_REGISTRY }}/${{ secrets.GOOGLE_PROJECT_ID }}/${{ secrets.DOCKER_REPO }}
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Changelog Version
+      id: changelog
+      uses: TriPSs/conventional-changelog-action@v3.7.1
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        tag-prefix: 'v'
+
+    - name: Create Release
+      uses: actions/create-release@v1
+      if: ${{ steps.changelog.outputs.skipped == 'false' }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ steps.changelog.outputs.tag }}
+        release_name: ${{ steps.changelog.outputs.tag }}
+        body: ${{ steps.changelog.outputs.clean_changelog }}
+
+    - uses: google-github-actions/setup-gcloud@master
+      with:
+        service_account_key: ${{ secrets.SERVICE_ACCOUNT_KEY }}
+        project_id: ${{ env.PROJECT_ID }}
+        export_default_credentials: true
+
+    - name: Build Docker Image
+      run: docker build -t $IMAGE_NAME:latest .
+
+    - name: Configure Docker Client
+      run: |-
+        gcloud auth configure-docker --quiet
+        gcloud auth configure-docker $REGISTRY --quiet
+
+    - name: Push Docker Image to Artifact Registry
+      env:
+        GIT_TAG: ${{ steps.changelog.outputs.version }}
+      run: |-
+        docker tag $IMAGE_NAME:latest $REPOSITORY/$IMAGE_NAME:latest
+        docker tag $IMAGE_NAME:latest $REPOSITORY/$IMAGE_NAME:$GIT_TAG
+        docker push $REPOSITORY/$IMAGE_NAME:latest
+        docker push $REPOSITORY/$IMAGE_NAME:$GIT_TAG
