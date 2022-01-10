@@ -7,6 +7,14 @@ def get_id(body: dict) -> str:
     return hashlib.md5(body_str.encode('utf-8')).hexdigest()
 
 
+def query(body: dict = None, **kwargs):
+    id = get_id(body)
+    resp = {
+        'id': id
+    }
+    return resp, 200
+
+
 def post(body: dict = None, **kwargs):
     id = get_id(body)
     resp = {
