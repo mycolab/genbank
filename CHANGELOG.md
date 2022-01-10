@@ -1,3 +1,12 @@
+## [0.1.2](https://github.com/mycolab/genbank/compare/v0.1.1...v0.1.2) (2022-01-10)
+
+
+### Bug Fixes
+
+* **spec:** removed commented GET section ([cd1e0b9](https://github.com/mycolab/genbank/commit/cd1e0b9153de08ce864b52b6f8dee2a3e29bd7b7))
+
+
+
 ## [0.1.1](https://github.com/mycolab/genbank/compare/v0.1.0...v0.1.1) (2022-01-10)
 
 
