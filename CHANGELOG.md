@@ -1,3 +1,12 @@
+## [0.1.7](https://github.com/mycolab/genbank/compare/v0.1.6...v0.1.7) (2022-01-10)
+
+
+### Bug Fixes
+
+* **docker:** adding repo as build arg ([02948d1](https://github.com/mycolab/genbank/commit/02948d1b4ffc905d385b4c46a15d0d90c1a36c8b))
+
+
+
 ## [0.1.6](https://github.com/mycolab/genbank/compare/v0.1.5...v0.1.6) (2022-01-10)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * **spec:** removed commented GET section ([9ad7217](https://github.com/mycolab/genbank/commit/9ad721714fedf61bf3c76a5aa1207462505b2b52))
-
-
-
-## [0.1.2](https://github.com/mycolab/genbank/compare/v0.1.1...v0.1.2) (2022-01-10)
-
-
-### Bug Fixes
-
-* **spec:** removed commented GET section ([cd1e0b9](https://github.com/mycolab/genbank/commit/cd1e0b9153de08ce864b52b6f8dee2a3e29bd7b7))
 
 
 
