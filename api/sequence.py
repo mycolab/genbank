@@ -9,9 +9,7 @@ def get_id(body: dict) -> str:
 
 def query(body: dict = None, **kwargs):
     id = get_id(body)
-    resp = {
-        'id': id
-    }
+    resp = body
     return resp, 200
 
 
