@@ -288,9 +288,3 @@ components:
           $ref: '#/components/schemas/Observations'
         location:
           $ref: '#/components/schemas/Location'
-
-
-
-
-
-
