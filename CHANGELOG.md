@@ -1,3 +1,17 @@
+# [0.2.0](https://github.com/mycolab/genbank/compare/v0.1.7...v0.2.0) (2022-01-11)
+
+
+### Bug Fixes
+
+* **api:** basic genbank query ([7e3eea3](https://github.com/mycolab/genbank/commit/7e3eea3622f36382e6cc73691c6f92f80955a6b3))
+
+
+### Features
+
+* **sequence:** added location lookup ([ff9b0de](https://github.com/mycolab/genbank/commit/ff9b0de977e9f97fb3db976a6262f76875131a27))
+
+
+
 ## [0.1.7](https://github.com/mycolab/genbank/compare/v0.1.6...v0.1.7) (2022-01-10)
 
 
@@ -31,15 +45,6 @@
 ### Bug Fixes
 
 * **ci:** master branch build ([e775f71](https://github.com/mycolab/genbank/commit/e775f71a7c495aa2f117dd8e8139f073f71dc2dc))
-
-
-
-## [0.1.3](https://github.com/mycolab/genbank/compare/v0.1.2...v0.1.3) (2022-01-10)
-
-
-### Bug Fixes
-
-* **spec:** removed commented GET section ([9ad7217](https://github.com/mycolab/genbank/commit/9ad721714fedf61bf3c76a5aa1207462505b2b52))
 
 
 
