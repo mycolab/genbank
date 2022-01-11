@@ -1,3 +1,12 @@
+## [0.2.1](https://github.com/mycolab/genbank/compare/v0.2.0...v0.2.1) (2022-01-11)
+
+
+### Bug Fixes
+
+* **README.md:** Added a README.md file. ([640829a](https://github.com/mycolab/genbank/commit/640829a79439b737366b51f216be6cb7e6cffae4))
+
+
+
 # [0.2.0](https://github.com/mycolab/genbank/compare/v0.1.7...v0.2.0) (2022-01-11)
 
 
@@ -36,15 +45,6 @@
 ### Bug Fixes
 
 * **ci:** test ([288f28c](https://github.com/mycolab/genbank/commit/288f28c8de1c272c7893ae10ef2e2b89774217d0))
-
-
-
-## [0.1.4](https://github.com/mycolab/genbank/compare/v0.1.3...v0.1.4) (2022-01-10)
-
-
-### Bug Fixes
-
-* **ci:** master branch build ([e775f71](https://github.com/mycolab/genbank/commit/e775f71a7c495aa2f117dd8e8139f073f71dc2dc))
 
 
 
