@@ -14,6 +14,10 @@ ADD . /app
 # compile and install blast
 WORKDIR /app
 
+# install app requirements
+RUN pip3 install -r requirements.txt
+
 # start container
 ENTRYPOINT ["python3", "app.py"]
+EXPOSE 8080/tcp
 

@@ -246,8 +246,6 @@ components:
           example: Catathelasma ventricosum s.s. Arkansas iNat 102798039
         sequence:
           $ref: '#/components/schemas/FASTASequence'
-        match:
-          $ref: '#/components/schemas/FASTAMatch'
     Query:
       required:
       - sequence
