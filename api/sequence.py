@@ -103,18 +103,32 @@ def fetch_accession(xml_file: str, accession_id: str):
     log_results(command_results)
 
 
-def load_fastas(id: str, accessions: list) -> list:
+def load_fastas(id: str, accessions: list, add_location: bool = True) -> list:
 
     fastas = []
     # run efetch to pull all accession details
     for accession in accessions:
         accession_id = accession['id']
+
         xml_file = f'/blast/fasta/{id}.{accession_id}.xml'
         json_file = f'/blast/fasta/{id}.{accession_id}.json'
         fetch_accession(xml_file, accession_id)
         a_object = load_xml(xml_file)
         write_json(a_object, json_file)
-        fastas.append({'description': accession['description'], 'sequence': accession['sequence']})
+
+        organism = a_object['GBSet']['GBSeq']['GBSeq_organism']
+
+        description = f'{accession_id} {organism}'
+        if add_location:
+            qualifiers = a_object['GBSet']['GBSeq']['GBSeq_feature-table']['GBFeature'][0]['GBFeature_quals']['GBQualifier']
+            for qualifier in qualifiers:
+                if 'country' in qualifier.get('GBQualifier_name'):
+                    location = qualifier.get('GBQualifier_value')
+                    description += f' {location}'
+                    break
+        fasta = {'description': description, 'sequence': accession['sequence']}
+
+        fastas.append(fasta)
 
     return fastas
 
@@ -170,7 +184,7 @@ def query(body: dict = None, **kwargs):
     accessions = load_accessions(blast_results)
 
     # load fasta from accessions
-    resp = load_fastas(id, accessions)
+    resp = load_fastas(id, accessions, add_location=location)
 
     return resp, 200
 
