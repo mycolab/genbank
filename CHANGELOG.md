@@ -1,3 +1,12 @@
+## [0.2.3](https://github.com/mycolab/genbank/compare/v0.2.2...v0.2.3) (2022-01-12)
+
+
+### Bug Fixes
+
+* **docker:** empty line ([b67e9dd](https://github.com/mycolab/genbank/commit/b67e9ddca64f5ff5a6f603a85eac58fdae6144d3))
+
+
+
 ## [0.2.2](https://github.com/mycolab/genbank/compare/v0.2.1...v0.2.2) (2022-01-12)
 
 
@@ -37,15 +46,6 @@
 ### Bug Fixes
 
 * **docker:** adding repo as build arg ([02948d1](https://github.com/mycolab/genbank/commit/02948d1b4ffc905d385b4c46a15d0d90c1a36c8b))
-
-
-
-## [0.1.6](https://github.com/mycolab/genbank/compare/v0.1.5...v0.1.6) (2022-01-10)
-
-
-### Bug Fixes
-
-* **api:** renamed api module from genbank to sequence ([3d80615](https://github.com/mycolab/genbank/commit/3d806155d38b5125570b07a594a33d6070525b09))
 
 
 
