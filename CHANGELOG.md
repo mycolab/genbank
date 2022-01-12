@@ -1,3 +1,13 @@
+## [0.2.2](https://github.com/mycolab/genbank/compare/v0.2.1...v0.2.2) (2022-01-12)
+
+
+### Bug Fixes
+
+* **app:** exposed port 9090 ([efe5fa5](https://github.com/mycolab/genbank/commit/efe5fa58087b0befe9859ca5d9c2e67103d0c9ce))
+* **docker:** empty line ([8d7a044](https://github.com/mycolab/genbank/commit/8d7a044772eb23469af66829e37e80625e800079))
+
+
+
 ## [0.2.1](https://github.com/mycolab/genbank/compare/v0.2.0...v0.2.1) (2022-01-11)
 
 
@@ -36,15 +46,6 @@
 ### Bug Fixes
 
 * **api:** renamed api module from genbank to sequence ([3d80615](https://github.com/mycolab/genbank/commit/3d806155d38b5125570b07a594a33d6070525b09))
-
-
-
-## [0.1.5](https://github.com/mycolab/genbank/compare/v0.1.4...v0.1.5) (2022-01-10)
-
-
-### Bug Fixes
-
-* **ci:** test ([288f28c](https://github.com/mycolab/genbank/commit/288f28c8de1c272c7893ae10ef2e2b89774217d0))
 
 
 
