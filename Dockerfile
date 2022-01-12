@@ -20,3 +20,4 @@ RUN pip3 install -r requirements.txt
 # start container
 ENTRYPOINT ["python3", "app.py"]
 EXPOSE 9090/tcp
+
