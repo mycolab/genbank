@@ -1,3 +1,12 @@
+## [0.3.1](https://github.com/mycolab/genbank/compare/v0.3.0...v0.3.1) (2022-01-13)
+
+
+### Bug Fixes
+
+* **api:** add MycoLab stamp (conditionally) ([d111194](https://github.com/mycolab/genbank/commit/d1111948da262d57401166894f3cfef26bea0c97))
+
+
+
 # [0.3.0](https://github.com/mycolab/genbank/compare/v0.2.3...v0.3.0) (2022-01-13)
 
 
@@ -32,20 +41,6 @@
 ### Bug Fixes
 
 * **README.md:** Added a README.md file. ([640829a](https://github.com/mycolab/genbank/commit/640829a79439b737366b51f216be6cb7e6cffae4))
-
-
-
-# [0.2.0](https://github.com/mycolab/genbank/compare/v0.1.7...v0.2.0) (2022-01-11)
-
-
-### Bug Fixes
-
-* **api:** basic genbank query ([7e3eea3](https://github.com/mycolab/genbank/commit/7e3eea3622f36382e6cc73691c6f92f80955a6b3))
-
-
-### Features
-
-* **sequence:** added location lookup ([ff9b0de](https://github.com/mycolab/genbank/commit/ff9b0de977e9f97fb3db976a6262f76875131a27))
 
 
 
