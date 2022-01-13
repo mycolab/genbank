@@ -341,8 +341,10 @@ def query(body: dict = None, **kwargs):
 
     # insert query fasta as first record with MycoLab stamp
     mycolab_fasta = {'description': description, 'sequence': query_sequence}
-    write_json(mycolab_fasta, f'/blast/fasta/mycolab-query-{id}.json')
     resp.insert(0, mycolab_fasta)
+
+    # write original query to disk
+    write_json(body, f'/blast/fasta/mycolab-query-{id}.json')
 
     # clean up files
     for file in [q_file, o_file]:
