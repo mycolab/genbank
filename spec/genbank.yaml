@@ -236,7 +236,7 @@ components:
     FASTAMatch:
       type: number
       description: Match accuracy
-      example: 97.4
+      example: 90.0
     FASTARecord:
       type: object
       properties:
@@ -255,15 +255,19 @@ components:
           $ref: '#/components/schemas/FASTASequence'
         results:
           type: integer
-          description: Maximum number of search results
-          example: 100
+          description: 'Maximum number of search results'
+          example: 50
         match:
           type: number
-          description: Minimum match accuracy (i.e. "percent identity")
-          example: 98.5
+          description: 'Minimum match accuracy (i.e. "percent identity")'
+          example: 90.0
         location:
           type: boolean
-          description: Enrich FASTA descriptions with location details
+          description: 'Enrich FASTA descriptions with location details (default: true)'
+          example: true
+        clean:
+          type: boolean
+          description: 'Discard alignment gaps from FASTA results (default: true)'
           example: true
     Sequence:
       required:
