@@ -160,10 +160,8 @@ def clean_fasta(fasta_sequence: str, remove_gaps: bool = True) -> dict:
     if remove_gaps:
         for gap_char in gap_chars:
             logging.debug(f'removing gap char: "{gap_char}", from: {sequence}')
-            print(f'removing gap char: "{gap_char}", from: {sequence}')
             sequence = sequence.replace(gap_char, '')
             logging.debug(f'clean_sequence: {sequence}')
-            print(f'clean_sequence: {sequence}')
 
     fasta = {'description': description, 'sequence': sequence}
 
@@ -228,6 +226,31 @@ def load_fasta(id: str, accessions: list, add_location: bool = True, remove_gaps
     return fastas
 
 
+def mycolab_stamp(description: str, mycolab_id: str = None) -> str:
+    """
+    Prefix FASTA description with MycoLab ID
+    :param description:
+    :param mycolab_id:
+    :return:
+    """
+
+    mycolab_name = 'MycoLab'
+    if mycolab_id:
+        # truncate Id to 10 chars
+        mycolab_name = f'{mycolab_name}-{mycolab_id[0:10]}'
+
+    # prep by removing '>'
+    description = description.replace('>', '')
+
+    # prefix with MycoLab stamp
+    if len(description) > 0:
+        description = f'{mycolab_name} {description}'
+    else:
+        description = f'{mycolab_name}'
+
+    return description
+
+
 def query(body: dict = None, **kwargs):
     """
     Query Genbank for matching sequences
@@ -259,6 +282,9 @@ def query(body: dict = None, **kwargs):
 
     # alignment gap removal
     remove_gaps = body.get('clean', True)
+
+    # mycolab stamp
+    add_stamp = body.get('stamp', True)
 
     # maximum results
     max_results = body.get('results', 50)
@@ -307,11 +333,19 @@ def query(body: dict = None, **kwargs):
     # load fasta from accessions
     resp = load_fasta(id, accessions, add_location=add_location, remove_gaps=remove_gaps)
 
-    # insert query fasta as first record
-    resp.insert(0, {'description': query_description, 'sequence': query_sequence})
+    # conditionally add MycoLab stamp
+    if add_stamp:
+        description = mycolab_stamp(query_description, mycolab_id=id)
+    else:
+        description = query_description
+
+    # insert query fasta as first record with MycoLab stamp
+    mycolab_fasta = {'description': description, 'sequence': query_sequence}
+    write_json(mycolab_fasta, f'/blast/fasta/mycolab-query-{id}.json')
+    resp.insert(0, mycolab_fasta)
 
     # clean up files
-    for file in [q_file]:
+    for file in [q_file, o_file]:
         if os.path.exists(file):
             os.remove(file)
         else:

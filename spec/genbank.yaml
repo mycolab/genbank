@@ -255,11 +255,11 @@ components:
           $ref: '#/components/schemas/FASTASequence'
         results:
           type: integer
-          description: 'Maximum number of search results'
+          description: 'Maximum number of search results (default: 50)'
           example: 50
         match:
           type: number
-          description: 'Minimum match accuracy (i.e. "percent identity")'
+          description: 'Minimum match accuracy (i.e. "percent identity") (default: 90.0)'
           example: 90.0
         location:
           type: boolean
@@ -268,6 +268,10 @@ components:
         clean:
           type: boolean
           description: 'Discard alignment gaps from FASTA results (default: true)'
+          example: true
+        stamp:
+          type: boolean
+          description: 'Add MycoLab stamp to query FASTA description (default: true)'
           example: true
     Sequence:
       required:
