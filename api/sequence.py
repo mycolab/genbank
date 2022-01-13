@@ -339,7 +339,7 @@ def query(body: dict = None, **kwargs):
     else:
         description = query_description
 
-    # insert query fasta as first record with MycoLab stamp
+    # insert query fasta as first record
     mycolab_fasta = {'description': description, 'sequence': query_sequence}
     resp.insert(0, mycolab_fasta)
 
