@@ -346,7 +346,7 @@ def query(body: dict = None, **kwargs):
     # write original query to disk
     write_json(body, f'/blast/fasta/mycolab-query-{id}.json')
 
-    # clean up files
+    # clean up temp files
     for file in [q_file, o_file]:
         if os.path.exists(file):
             os.remove(file)
