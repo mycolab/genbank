@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/mycolab/genbank/compare/v0.2.3...v0.3.0) (2022-01-13)
+
+
+### Features
+
+* **api:** conditionally remove alignment gaps ([d77e09e](https://github.com/mycolab/genbank/commit/d77e09e06bc3c84d8bd85f35b80b164b94c9ba41))
+
+
+
 ## [0.2.3](https://github.com/mycolab/genbank/compare/v0.2.2...v0.2.3) (2022-01-12)
 
 
@@ -37,15 +46,6 @@
 ### Features
 
 * **sequence:** added location lookup ([ff9b0de](https://github.com/mycolab/genbank/commit/ff9b0de977e9f97fb3db976a6262f76875131a27))
-
-
-
-## [0.1.7](https://github.com/mycolab/genbank/compare/v0.1.6...v0.1.7) (2022-01-10)
-
-
-### Bug Fixes
-
-* **docker:** adding repo as build arg ([02948d1](https://github.com/mycolab/genbank/commit/02948d1b4ffc905d385b4c46a15d0d90c1a36c8b))
 
 
 
