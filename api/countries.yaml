@@ -1,0 +1,1207 @@
+Afghanistan:
+  alpha_2: AF
+  alpha_3: AFG
+  numeric: 0
+Aland Islands:
+  alts:
+    - Åland Islands
+    - Åland Is.
+    - Aland Islands
+    - Aland Is.
+  alpha_2: AX
+  alpha_3: ALA
+  numberic: 248
+Albania:
+  alpha_2: AL
+  alpha_3: ALB
+  numberic: 008
+Algeria:
+  alpha_2: DZ
+  alpha_3: DZA
+  numberic: 012
+American Samoa:
+  alts:
+    - Am. Samoa
+  alpha_2: AS
+  alpha_3: ASM
+  numberic: 016
+Andorra:
+  alpha_2: AD
+  alpha_3: AND
+  numberic: 020
+Angola:
+  alpha_2: AO
+  alpha_3: AGO
+  numberic: 024
+Anguilla:
+  alpha_2: AI
+  alpha_3: AIA
+  numberic: 660
+Antarctica:
+  alpha_2: AQ
+  alpha_3: ATA
+  numberic: 010
+Antigua:
+  alts:
+    - Barbuda
+  alpha_2: AG
+  alpha_3: ATG
+  numberic: 028
+Argentina:
+  alpha_2: AR
+  alpha_3: ARG
+  numberic: 032
+Armenia:
+  alpha_2: AM
+  alpha_3: ARM
+  numberic: 051
+Aruba:
+  alpha_2: AW
+  alpha_3: ABW
+  numberic: 533
+Australia:
+  alpha_2: AU
+  alpha_3: AUS
+  numberic: 036
+Austria:
+  alpha_2: AT
+  alpha_3: AUT
+  numberic: 040
+Azerbaijan:
+  alpha_2: AZ
+  alpha_3: AZE
+  numberic: 031
+Bahamas:
+  alpha_2: BS
+  alpha_3: BHS
+  numberic: 044
+Bahrain:
+  alpha_2: BH
+  alpha_3: BHR
+  numberic: 048
+Bangladesh:
+  alpha_2: BD
+  alpha_3: BGD
+  numberic: 050
+Barbados:
+  alpha_2: BB
+  alpha_3: BRB
+  numberic: 052
+Belarus:
+  alpha_2: BY
+  alpha_3: BLR
+  numberic: 112
+Belgium:
+  alpha_2: BE
+  alpha_3: BEL
+  numberic: 056
+Belize:
+  alpha_2: BZ
+  alpha_3: BLZ
+  numberic: 084
+Benin:
+  alpha_2: BJ
+  alpha_3: BEN
+  numberic: 204
+Bermuda:
+  alpha_2: BM
+  alpha_3: BMU
+  numberic: 060
+Bhutan:
+  alpha_2: BT
+  alpha_3: BTN
+  numberic: 064
+Bolivia:
+  alpha_2: BO
+  alpha_3: BOL
+  numberic: 068
+Bonaire:
+  alts:
+    - Sint Eustatius
+    - Saba
+  alpha_2: BQ
+  alpha_3: BES
+  numberic: 535
+Bosnia:
+  alts:
+    - Herzegovina
+  alpha_2: BA
+  alpha_3: BIH
+  numberic: 070
+Botswana:
+  alpha_2: BW
+  alpha_3: BWA
+  numberic: 072
+Bouvet Island:
+  alpha_2: BV
+  alpha_3: BVT
+  numberic: 074
+Brazil:
+  alpha_2: BR
+  alpha_3: BRA
+  numberic: 076
+British Indian Ocean Territory:
+  alts:
+    - BIOT
+    - Indian Ocean Territory
+  alpha_2: IO
+  alpha_3: IOT
+  numberic: 086
+Brunei Darussalam:
+  alts:
+    - Brunei
+    - Darussalam
+  alpha_2: BN
+  alpha_3: BRN
+  numberic: 096
+Bulgaria:
+  alpha_2: BG
+  alpha_3: BGR
+  numberic: 100
+Burkina Faso:
+  alts:
+    - Burkina
+    - Faso
+  alpha_2: BF
+  alpha_3: BFA
+  numberic: 854
+Burundi:
+  alpha_2: BI
+  alpha_3: BDI
+  numberic: 108
+Cabo Verde:
+  alts:
+    - Cabo
+  alpha_2: CV
+  alpha_3: CPV
+  numberic: 132
+Cambodia:
+  alpha_2: KH
+  alpha_3: KHM
+  numberic: 116
+Cameroon:
+  alpha_2: CM
+  alpha_3: CMR
+  numberic: 120
+Canada:
+  alpha_2: CA
+  alpha_3: CAN
+  numberic: 124
+Cayman Islands:
+  alpha_2: KY
+  alpha_3: CYM
+  numberic: 136
+Central African Republic:
+  alts:
+    - African Republic
+    - Republic of Central Africa
+  alpha_2: CF
+  alpha_3: CAF
+  numberic: 140
+Chad:
+  alpha_2: TD
+  alpha_3: TCD
+  numberic: 148
+Chile:
+  alpha_2: CL
+  alpha_3: CHL
+  numberic: 152
+China:
+  alpha_2: CN
+  alpha_3: CHN
+  numberic: 156
+Christmas Island:
+  alts:
+    - Christmas Is.
+    - Christmas
+  alpha_2: CX
+  alpha_3: CXR
+  numberic: 162
+Cocos Islands:
+  alts:
+    - Cocos Is.
+    - Cocos
+    - Keeling
+  alpha_2: CC
+  alpha_3: CCK
+  numberic: 166
+Colombia:
+  alpha_2: CO
+  alpha_3: COL
+  numberic: 170
+Comoros:
+  alpha_2: KM
+  alpha_3: COM
+  numberic: 174
+Congo Democratic Republic:
+  alts:
+    - Democratic Replubic of the Congo
+    - Democratic Replubic of Congo
+  alpha_2: CD
+  alpha_3: COD
+  numberic: 180
+Congo:
+  alpha_2: CG
+  alpha_3: COG
+  numberic: 178
+Cook Islands:
+  alts:
+    - Cook
+  alpha_2: CK
+  alpha_3: COK
+  numberic: 184
+Costa Rica:
+  alts:
+    - CostaRica
+  alpha_2: CR
+  alpha_3: CRI
+  numberic: 188
+Croatia:
+  alpha_2: HR
+  alpha_3: HRV
+  numberic: 191
+Cuba:
+  alpha_2: CU
+  alpha_3: CUB
+  numberic: 192
+Curaçao:
+  alpha_2: CW
+  alpha_3: CUW
+  numberic: 531
+Cyprus:
+  alpha_2: CY
+  alpha_3: CYP
+  numberic: 196
+Czechia:
+  alpha_2: CZ
+  alpha_3: CZE
+  numberic: 203
+Côte d'Ivoire:
+  alpha_2: CI
+  alpha_3: CIV
+  numberic: 384
+Denmark:
+  alpha_2: DK
+  alpha_3: DNK
+  numberic: 208
+Djibouti:
+  alpha_2: DJ
+  alpha_3: DJI
+  numberic: 262
+Dominica:
+  alpha_2: DM
+  alpha_3: DMA
+  numberic: 212
+Dominican Republic:
+  alts:
+    - Dominican
+  alpha_2: DO
+  alpha_3: DOM
+  numberic: 214
+Ecuador:
+  alpha_2: EC
+  alpha_3: ECU
+  numberic: 218
+Egypt:
+  alpha_2: EG
+  alpha_3: EGY
+  numberic: 818
+El Salvador:
+  alpha_2: SV
+  alpha_3: SLV
+  numberic: 222
+Equatorial Guinea:
+  alpha_2: GQ
+  alpha_3: GNQ
+  numberic: 226
+Eritrea:
+  alpha_2: ER
+  alpha_3: ERI
+  numberic: 232
+Estonia:
+  alpha_2: EE
+  alpha_3: EST
+  numberic: 233
+Eswatini:
+  alpha_2: SZ
+  alpha_3: SWZ
+  numberic: 748
+Ethiopia:
+  alpha_2: ET
+  alpha_3: ETH
+  numberic: 231
+Falkland Islands:
+  alts:
+    - Malvinas
+    - Falkland
+  alpha_2: FK
+  alpha_3: FLK
+  numberic: 238
+Faroe Islands:
+  alts:
+    - Faroe
+  alpha_2: FO
+  alpha_3: FRO
+  numberic: 234
+Fiji:
+  alpha_2: FJ
+  alpha_3: FJI
+  numberic: 242
+Finland:
+  alpha_2: FI
+  alpha_3: FIN
+  numberic: 246
+France:
+  alpha_2: FR
+  alpha_3: FRA
+  numberic: 250
+French Guiana:
+  alts:
+    - Guiana
+  alpha_2: GF
+  alpha_3: GUF
+  numberic: 254
+French Polynesia:
+  alts:
+    - Polynesia
+  alpha_2: PF
+  alpha_3: PYF
+  numberic: 258
+French Southern Territories:
+  alts:
+    - French Territories
+    - Southern Territories
+  alpha_2: TF
+  alpha_3: ATF
+  numberic: 260
+Gabon:
+  alpha_2: GA
+  alpha_3: GAB
+  numberic: 266
+Gambia:
+  alpha_2: GM
+  alpha_3: GMB
+  numberic: 270
+Georgia:
+  alpha_2: GE
+  alpha_3: GEO
+  numberic: 268
+Germany:
+  alpha_2: DE
+  alpha_3: DEU
+  numberic: 276
+Ghana:
+  alpha_2: GH
+  alpha_3: GHA
+  numberic: 288
+Gibraltar:
+  alpha_2: GI
+  alpha_3: GIB
+  numberic: 292
+Greece:
+  alpha_2: GR
+  alpha_3: GRC
+  numberic: 300
+Greenland:
+  alpha_2: GL
+  alpha_3: GRL
+  numberic: 304
+Grenada:
+  alpha_2: GD
+  alpha_3: GRD
+  numberic: 308
+Guadeloupe:
+  alpha_2: GP
+  alpha_3: GLP
+  numberic: 312
+Guam:
+  alpha_2: GU
+  alpha_3: GUM
+  numberic: 316
+Guatemala:
+  alpha_2: GT
+  alpha_3: GTM
+  numberic: 320
+Guernsey:
+  alpha_2: GG
+  alpha_3: GGY
+  numberic: 831
+Guinea:
+  alpha_2: GN
+  alpha_3: GIN
+  numberic: 324
+Guinea-Bissau:
+  alpha_2: GW
+  alpha_3: GNB
+  numberic: 624
+Guyana:
+  alpha_2: GY
+  alpha_3: GUY
+  numberic: 328
+Haiti:
+  alpha_2: HT
+  alpha_3: HTI
+  numberic: 332
+Heard Island:
+  alts:
+    - Heard Is.
+    - McDonald Islands
+    - McDonald Is.
+  alpha_2: HM
+  alpha_3: HMD
+  numberic: 334
+Holy See:
+  alts:
+    - See of Rome
+    - Apostolic See
+  alpha_2: VA
+  alpha_3: VAT
+  numberic: 336
+Honduras:
+  alpha_2: HN
+  alpha_3: HND
+  numberic: 340
+Hong Kong:
+  alpha_2: HK
+  alpha_3: HKG
+  numberic: 344
+Hungary:
+  alpha_2: HU
+  alpha_3: HUN
+  numberic: 348
+Iceland:
+  alpha_2: IS
+  alpha_3: ISL
+  numberic: 352
+India:
+  alpha_2: IN
+  alpha_3: IND
+  numberic: 356
+Indonesia:
+  alpha_2: ID
+  alpha_3: IDN
+  numberic: 360
+Iran:
+  alts:
+    - Islamic Republic of Iran
+    - Islamic Republic
+    - Republic of Iran
+  alpha_2: IR
+  alpha_3: IRN
+  numberic: 364
+Iraq:
+  alpha_2: IQ
+  alpha_3: IRQ
+  numberic: 368
+Ireland:
+  alpha_2: IE
+  alpha_3: IRL
+  numberic: 372
+Isle of Man:
+  alpha_2: IM
+  alpha_3: IMN
+  numberic: 833
+Israel:
+  alpha_2: IL
+  alpha_3: ISR
+  numberic: 376
+Italy:
+  alpha_2: IT
+  alpha_3: ITA
+  numberic: 380
+Jamaica:
+  alpha_2: JM
+  alpha_3: JAM
+  numberic: 388
+Japan:
+  alpha_2: JP
+  alpha_3: JPN
+  numberic: 392
+Jersey:
+  alpha_2: JE
+  alpha_3: JEY
+  numberic: 832
+Jordan:
+  alpha_2: JO
+  alpha_3: JOR
+  numberic: 400
+Kazakhstan:
+  alpha_2: KZ
+  alpha_3: KAZ
+  numberic: 398
+Kenya:
+  alpha_2: KE
+  alpha_3: KEN
+  numberic: 404
+Kiribati:
+  alpha_2: KI
+  alpha_3: KIR
+  numberic: 296
+North Korea:
+  alts:
+    - N. Korea
+    - Democratic People's Republic of Korea
+    - People's Republic of Korea
+    - DPRK
+  alpha_2: KP
+  alpha_3: PRK
+  numberic: 408
+South Korea:
+  alts:
+    - S. Korea
+    - Republic of Korea
+  alpha_2: KR
+  alpha_3: KOR
+  numberic: 410
+Kuwait:
+  alpha_2: KW
+  alpha_3: KWT
+  numberic: 414
+Kyrgyzstan:
+  alpha_2: KG
+  alpha_3: KGZ
+  numberic: 417
+Laos:
+  alts:
+    - Lao People's Democratic Republic
+  alpha_2: LA
+  alpha_3: LAO
+  numberic: 418
+Latvia:
+  alpha_2: LV
+  alpha_3: LVA
+  numberic: 428
+Lebanon:
+  alpha_2: LB
+  alpha_3: LBN
+  numberic: 422
+Lesotho:
+  alpha_2: LS
+  alpha_3: LSO
+  numberic: 426
+Liberia:
+  alpha_2: LR
+  alpha_3: LBR
+  numberic: 430
+Libya:
+  alpha_2: LY
+  alpha_3: LBY
+  numberic: 434
+Liechtenstein:
+  alpha_2: LI
+  alpha_3: LIE
+  numberic: 438
+Lithuania:
+  alpha_2: LT
+  alpha_3: LTU
+  numberic: 440
+Luxembourg:
+  alpha_2: LU
+  alpha_3: LUX
+  numberic: 442
+Macao:
+  alpha_2: MO
+  alpha_3: MAC
+  numberic: 446
+Madagascar:
+  alpha_2: MG
+  alpha_3: MDG
+  numberic: 450
+Malawi:
+  alpha_2: MW
+  alpha_3: MWI
+  numberic: 454
+Malaysia:
+  alpha_2: MY
+  alpha_3: MYS
+  numberic: 458
+Maldives:
+  alpha_2: MV
+  alpha_3: MDV
+  numberic: 462
+Mali:
+  alpha_2: ML
+  alpha_3: MLI
+  numberic: 466
+Malta:
+  alpha_2: MT
+  alpha_3: MLT
+  numberic: 470
+Marshall Islands:
+  alts:
+    - Marshall Island
+    - Marshall Is.
+  alpha_2: MH
+  alpha_3: MHL
+  numberic: 584
+Martinique:
+  alpha_2: MQ
+  alpha_3: MTQ
+  numberic: 474
+Mauritania:
+  alpha_2: MR
+  alpha_3: MRT
+  numberic: 478
+Mauritius:
+  alpha_2: MU
+  alpha_3: MUS
+  numberic: 480
+Mayotte:
+  alpha_2: YT
+  alpha_3: MYT
+  numberic: 175
+Mexico:
+  alpha_2: MX
+  alpha_3: MEX
+  numberic: 484
+Micronesia:
+  alts:
+    - Federated States of Micronesia
+  alpha_2: FM
+  alpha_3: FSM
+  numberic: 583
+Moldova:
+  alts:
+    - Republic of Moldova
+  alpha_2: MD
+  alpha_3: MDA
+  numberic: 498
+Monaco:
+  alpha_2: MC
+  alpha_3: MCO
+  numberic: 492
+Mongolia:
+  alpha_2: MN
+  alpha_3: MNG
+  numberic: 496
+Montenegro:
+  alpha_2: ME
+  alpha_3: MNE
+  numberic: 499
+Montserrat:
+  alpha_2: MS
+  alpha_3: MSR
+  numberic: 500
+Morocco:
+  alpha_2: MA
+  alpha_3: MAR
+  numberic: 504
+Mozambique:
+  alpha_2: MZ
+  alpha_3: MOZ
+  numberic: 508
+Myanmar:
+  alpha_2: MM
+  alpha_3: MMR
+  numberic: 104
+Namibia:
+  alpha_2: NA
+  alpha_3: NAM
+  numberic: 516
+Nauru:
+  alpha_2: NR
+  alpha_3: NRU
+  numberic: 520
+Nepal:
+  alpha_2: NP
+  alpha_3: NPL
+  numberic: 524
+Netherlands:
+  alpha_2: NL
+  alpha_3: NLD
+  numberic: 528
+New Caledonia:
+  alpha_2: NC
+  alpha_3: NCL
+  numberic: 540
+New Zealand:
+  alpha_2: NZ
+  alpha_3: NZL
+  numberic: 554
+Nicaragua:
+  alpha_2: NI
+  alpha_3: NIC
+  numberic: 558
+Niger:
+  alpha_2: NE
+  alpha_3: NER
+  numberic: 562
+Nigeria:
+  alpha_2: NG
+  alpha_3: NGA
+  numberic: 566
+Niue:
+  alpha_2: NU
+  alpha_3: NIU
+  numberic: 570
+Norfolk Island:
+  alts:
+    - Norfolk Is.
+  alpha_2: NF
+  alpha_3: NFK
+  numberic: 574
+Northern Mariana Islands:
+  alts:
+    - N. Marina Islands
+    - N. Marina Is.
+    - Marina Islands
+    - Marina Is.
+  alpha_2: MP
+  alpha_3: MNP
+  numberic: 580
+Norway:
+  alpha_2: NO
+  alpha_3: NOR
+  numberic: 578
+Oman:
+  alpha_2: OM
+  alpha_3: OMN
+  numberic: 512
+Pakistan:
+  alpha_2: PK
+  alpha_3: PAK
+  numberic: 586
+Palau:
+  alpha_2: PW
+  alpha_3: PLW
+  numberic: 585
+Palestine:
+  alts:
+    - State of Palestine
+  alpha_2: PS
+  alpha_3: PSE
+  numberic: 275
+Panama:
+  alpha_2: PA
+  alpha_3: PAN
+  numberic: 591
+Papua New Guinea:
+  alts:
+    - New Guinea
+    - Papua NG
+  alpha_2: PG
+  alpha_3: PNG
+  numberic: 598
+Paraguay:
+  alpha_2: PY
+  alpha_3: PRY
+  numberic: 600
+Peru:
+  alpha_2: PE
+  alpha_3: PER
+  numberic: 604
+Philippines:
+  alpha_2: PH
+  alpha_3: PHL
+  numberic: 608
+Pitcairn:
+  alpha_2: PN
+  alpha_3: PCN
+  numberic: 612
+Poland:
+  alpha_2: PL
+  alpha_3: POL
+  numberic: 616
+Portugal:
+  alpha_2: PT
+  alpha_3: PRT
+  numberic: 620
+Puerto Rico:
+  alpha_2: PR
+  alpha_3: PRI
+  numberic: 630
+Qatar:
+  alpha_2: QA
+  alpha_3: QAT
+  numberic: 634
+Macedonia:
+  alts:
+    - Republic of North Macedonia
+    - Republic of N. Macedonia
+    - N. Macedonia
+  alpha_2: MK
+  alpha_3: MKD
+  numberic: 807
+Romania:
+  alpha_2: RO
+  alpha_3: ROU
+  numberic: 642
+Russia:
+  alts:
+    - Russian Federation
+    - Federation of Russia
+  alpha_2: RU
+  alpha_3: RUS
+  numberic: 643
+Rwanda:
+  alpha_2: RW
+  alpha_3: RWA
+  numberic: 646
+Réunion:
+  alts:
+    - Reunion
+  alpha_2: RE
+  alpha_3: REU
+  numberic: 638
+Saint Barthelemy:
+  alts:
+    - St. Barthelemy
+    - Saint Barthélemy
+    - St. Barthélemy
+  alpha_2: BL
+  alpha_3: BLM
+  numberic: 652
+Helena:
+  alts:
+    - Saint Helena
+    - Tristan da Cunha
+    - Tristan de Cunha
+    - Ascension
+  alpha_2: SH
+  alpha_3: SHN
+  numberic: 654
+Saint Kitts:
+  alts:
+    - St. Kitts
+    - Nevis
+  alpha_2: KN
+  alpha_3: KNA
+  numberic: 659
+Saint Lucia:
+  alts:
+    - St. Lucia
+  alpha_2: LC
+  alpha_3: LCA
+  numberic: 662
+Saint Martin:
+  alts:
+    - French part of Saint Martin
+    - French part of St. Martin
+    - St. Martin
+  alpha_2: MF
+  alpha_3: MAF
+  numberic: 663
+Saint Pierre:
+  alts:
+    - St. Pierre
+    - Miquelon
+  alpha_2: PM
+  alpha_3: SPM
+  numberic: 666
+Saint Vincent:
+  alts:
+    - St. Vincent
+    - Grenadines
+  alpha_2: VC
+  alpha_3: VCT
+  numberic: 670
+Samoa:
+  alpha_2: WS
+  alpha_3: WSM
+  numberic: 882
+San Marino:
+  alpha_2: SM
+  alpha_3: SMR
+  numberic: 674
+Saint Thomas and Prince:
+  alts:
+    - Democratic Republic of São Tomé and Príncipe
+    - Sao Tome and Principe
+    - Sao Tome
+    - Principe
+  alpha_2: ST
+  alpha_3: STP
+  numberic: 678
+Saudi Arabia:
+  alts:
+    - S. Arabia
+    - Arabia
+  alpha_2: SA
+  alpha_3: SAU
+  numberic: 682
+Senegal:
+  alpha_2: SN
+  alpha_3: SEN
+  numberic: 686
+Serbia:
+  alpha_2: RS
+  alpha_3: SRB
+  numberic: 688
+Seychelles:
+  alpha_2: SC
+  alpha_3: SYC
+  numberic: 690
+Sierra Leone:
+  alts:
+    - S. Leone
+    - Sierra L.
+  alpha_2: SL
+  alpha_3: SLE
+  numberic: 694
+Singapore:
+  alpha_2: SG
+  alpha_3: SGP
+  numberic: 702
+Sint Maarten:
+  alts:
+    - S. Maarten
+    - Saint Marten
+    - St. Marten
+  alpha_2: SX
+  alpha_3: SXM
+  numberic: 534
+Slovakia:
+  alpha_2: SK
+  alpha_3: SVK
+  numberic: 703
+Slovenia:
+  alpha_2: SI
+  alpha_3: SVN
+  numberic: 705
+Solomon Islands:
+  alts:
+    - Solomon Is.
+  alpha_2: SB
+  alpha_3: SLB
+  numberic: 090
+Somalia:
+  alpha_2: SO
+  alpha_3: SOM
+  numberic: 706
+South Africa:
+  alts:
+    - S. Africa
+  alpha_2: ZA
+  alpha_3: ZAF
+  numberic: 710
+South Georgia:
+  alts:
+    - S. Georgia
+    - South Sandwich Islands
+    - S. Sandwich Islands
+    - S. Sandwich Is.
+  alpha_2: GS
+  alpha_3: SGS
+  numberic: 239
+South Sudan:
+  alts:
+    - S. Sudan
+  alpha_2: SS
+  alpha_3: SSD
+  numberic: 728
+Spain:
+  alpha_2: ES
+  alpha_3: ESP
+  numberic: 724
+Sri Lanka:
+  alpha_2: LK
+  alpha_3: LKA
+  numberic: 144
+Sudan:
+  alpha_2: SD
+  alpha_3: SDN
+  numberic: 729
+Suriname:
+  alpha_2: SR
+  alpha_3: SUR
+  numberic: 740
+Svalbard:
+  alts:
+    - Jan Mayen
+  alpha_2: SJ
+  alpha_3: SJM
+  numberic: 744
+Sweden:
+  alpha_2: SE
+  alpha_3: SWE
+  numberic: 752
+Switzerland:
+  alpha_2: CH
+  alpha_3: CHE
+  numberic: 756
+Syria:
+  alts:
+    - Syrian Arab Republic
+  alpha_2: SY
+  alpha_3: SYR
+  numberic: 760
+Taiwan:
+  alts:
+    - Province of China
+  alpha_2: TW
+  alpha_3: TWN
+  numberic: 158
+Tajikistan:
+  alpha_2: TJ
+  alpha_3: TJK
+  numberic: 762
+Tanzania:
+  alts:
+    - United Republic of Tanzania
+    - Republic of Tanzania
+  alpha_2: TZ
+  alpha_3: TZA
+  numberic: 834
+Thailand:
+  alpha_2: TH
+  alpha_3: THA
+  numberic: 764
+Timor-Leste:
+  alts:
+    - Timor Leste
+  alpha_2: TL
+  alpha_3: TLS
+  numberic: 626
+Togo:
+  alpha_2: TG
+  alpha_3: TGO
+  numberic: 768
+Tokelau:
+  alpha_2: TK
+  alpha_3: TKL
+  numberic: 772
+Tonga:
+  alpha_2: TO
+  alpha_3: TON
+  numberic: 776
+Trinidad:
+  alts:
+    - Tobago
+  alpha_2: TT
+  alpha_3: TTO
+  numberic: 780
+Tunisia:
+  alpha_2: TN
+  alpha_3: TUN
+  numberic: 788
+Turkey:
+  alpha_2: TR
+  alpha_3: TUR
+  numberic: 792
+Turkmenistan:
+  alpha_2: TM
+  alpha_3: TKM
+  numberic: 795
+Turks:
+  alts:
+    - Caicos Islands
+    - Caicos Is.
+  alpha_2: TC
+  alpha_3: TCA
+  numberic: 796
+Tuvalu:
+  alpha_2: TV
+  alpha_3: TUV
+  numberic: 798
+Uganda:
+  alpha_2: UG
+  alpha_3: UGA
+  numberic: 800
+Ukraine:
+  alpha_2: UA
+  alpha_3: UKR
+  numberic: 804
+United Arab Emirates:
+  alts:
+    - Arab Emirates
+  alpha_2: AE
+  alpha_3: ARE
+  numberic: 784
+United Kingdom:
+  alts:
+    - Great Britain
+    - England
+    - Scotland
+    - United Kingdom
+    - Northern Ireland
+    - N. Ireland
+    - Britain
+    - UK
+  alpha_2: GB
+  alpha_3: GBR
+  numberic: 826
+United States Minor Outlying Islands:
+  alts:
+    - US Minor Outlying Islands
+    - US Minor Outlying Is.
+  alpha_2: UM
+  alpha_3: UMI
+  numberic: 581
+USA:
+  alts:
+    - United States of America
+    - United States
+    - America
+  alpha_2: US
+  alpha_3: USA
+  numberic: 840
+Uruguay:
+  alpha_2: UY
+  alpha_3: URY
+  numberic: 858
+Uzbekistan:
+  alpha_2: UZ
+  alpha_3: UZB
+  numberic: 860
+Vanuatu:
+  alpha_2: VU
+  alpha_3: VUT
+  numberic: 548
+Venezuela:
+  alts:
+    - Bolivarian Republic of Venezuala
+    - Bolivarian Republic
+    - Republic of Venezuala
+  alpha_2: VE
+  alpha_3: VEN
+  numberic: 862
+Vietnam:
+  alts:
+    - Viet Nam
+  alpha_2: VN
+  alpha_3: VNM
+  numberic: 704
+British Virgin Islands:
+  alts:
+    - Virgin Islands (British)
+  alpha_2: VG
+  alpha_3: VGB
+  numberic: 092
+US Virgin Islands:
+  alts:
+    - U.S. Virgin Islands
+    - Virgin Islands (US)
+    - Virgin Islands (USA)
+    - Virgin Islands (U.S.A.)
+    - Virgin Islands (U.S.A.)
+    - Virgin Islands
+    - Virgin Is.
+  alpha_2: VI
+  alpha_3: VIR
+  numberic: 850
+Wallis:
+  alts:
+    - Futuna
+  alpha_2: WF
+  alpha_3: WLF
+  numberic: 876
+Sahara:
+  alts:
+    - Western Sahara
+    - W. Sahara
+    - Sahara
+  alpha_2: EH
+  alpha_3: ESH
+  numberic: 732
+Yemen:
+  alpha_2: YE
+  alpha_3: YEM
+  numberic: 887
+Zambia:
+  alpha_2: ZM
+  alpha_3: ZMB
+  numberic: 894
+Zimbabwe:
+  alpha_2: ZW
+  alpha_3: ZWE
+  numberic: 716
