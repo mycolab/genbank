@@ -1,3 +1,17 @@
+# [0.4.0](https://github.com/mycolab/genbank/compare/v0.3.2...v0.4.0) (2022-01-14)
+
+
+### Bug Fixes
+
+* **genbank:** added country dictionary ([7d40a4a](https://github.com/mycolab/genbank/commit/7d40a4acfc9e236965e4e0259ae6e8b45f7e3e6f))
+
+
+### Features
+
+* **sequences:** Country of origin approximation on location_add=True ([f187b93](https://github.com/mycolab/genbank/commit/f187b93aff9c4a091a52539df311a306e22d068d))
+
+
+
 ## [0.3.2](https://github.com/mycolab/genbank/compare/v0.3.1...v0.3.2) (2022-01-13)
 
 
@@ -33,16 +47,6 @@
 ### Bug Fixes
 
 * **docker:** empty line ([b67e9dd](https://github.com/mycolab/genbank/commit/b67e9ddca64f5ff5a6f603a85eac58fdae6144d3))
-
-
-
-## [0.2.2](https://github.com/mycolab/genbank/compare/v0.2.1...v0.2.2) (2022-01-12)
-
-
-### Bug Fixes
-
-* **app:** exposed port 9090 ([efe5fa5](https://github.com/mycolab/genbank/commit/efe5fa58087b0befe9859ca5d9c2e67103d0c9ce))
-* **docker:** empty line ([8d7a044](https://github.com/mycolab/genbank/commit/8d7a044772eb23469af66829e37e80625e800079))
 
 
 
