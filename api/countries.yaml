@@ -1121,13 +1121,17 @@ United Kingdom:
   alpha_3: GBR
   numberic: 826
 United States Minor Outlying Islands:
+  alts:
+    - US Minor Outlying Islands
+    - US Minor Outlying Is.
   alpha_2: UM
   alpha_3: UMI
   numberic: 581
 USA:
-  - United States of America
-  - United States
-  - America
+  alts:
+    - United States of America
+    - United States
+    - America
   alpha_2: US
   alpha_3: USA
   numberic: 840

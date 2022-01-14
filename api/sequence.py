@@ -1,6 +1,7 @@
 import os
 import hashlib
 import json
+import yaml
 import xmltodict
 import logging
 from subprocess import Popen, PIPE
@@ -168,6 +169,72 @@ def clean_fasta(fasta_sequence: str, remove_gaps: bool = True) -> dict:
     return fasta
 
 
+def load_countries() -> dict:
+    """
+    Loads counties.yaml as dictionary
+    :return:
+    """
+
+    countries = {}
+    this_dir = os.path.dirname(os.path.realpath(__file__))
+    countries_file = f'{this_dir}/countries.yaml'
+
+    with open(countries_file, "r") as stream:
+        try:
+            countries = yaml.safe_load(stream)
+        except yaml.YAMLError as e:
+            logging.error(e)
+
+    logging.debug(json.dumps(countries))
+
+    return countries
+
+
+def country_search(countries: dict = None, location_data: str = None) -> str:
+    """
+    Approximates country of origin
+    :param countries:
+    :param location_data:
+    :return:
+    """
+
+    country = ''
+
+    if countries:
+
+        for key, value in countries.items():
+            if key in location_data:
+                country = key
+                break
+
+        if country == '':
+            for key, value in countries.items():
+                alts = value.get('alts', None)
+
+                if alts:
+                    for alt in alts:
+                        if alt in location_data:
+                            country = key
+                            break
+                    if country != '':
+                        break
+
+        if country == '':
+            for key, value in countries.items():
+                alpha_3 = value.get('alpha_3')
+
+                if f' {alpha_3} ' in location_data or f'{alpha_3}:' in location_data:
+                    country = f'~{key}'
+                    break
+
+    if country == '':
+        logging.warn(f'NO COUNTRY DATA FOUND: {location_data}')
+    else:
+        country = f'~{country}'
+
+    return country
+
+
 def load_fasta(id: str, accessions: list, add_location: bool = True, remove_gaps: bool = True) -> list:
     """
     Return list of fasta dictionaries from accessions
@@ -179,6 +246,12 @@ def load_fasta(id: str, accessions: list, add_location: bool = True, remove_gaps
     """
 
     fastas = []
+
+    # pre-load countries dictionary
+    countries = {}
+    if add_location:
+        countries = load_countries()
+
     # run efetch to pull all accession details
     for accession in accessions:
         accession_id = accession['id']
@@ -195,13 +268,20 @@ def load_fasta(id: str, accessions: list, add_location: bool = True, remove_gaps
             description = f'{accession_id} {organism}'
 
             if add_location:
+                location = None
                 qualifiers = a_object[
                     'GBSet']['GBSeq']['GBSeq_feature-table']['GBFeature'][0]['GBFeature_quals']['GBQualifier']
                 for qualifier in qualifiers:
                     if 'country' in qualifier.get('GBQualifier_name'):
                         location = qualifier.get('GBQualifier_value')
-                        description += f' {location}'
-                        break
+                        if location != '' and location is not None:
+                            break
+
+                if location is None or location == '':
+                    location = country_search(countries=countries, location_data=json.dumps(a_object))
+
+                if location:
+                    description += f' {location}'
 
             sequence = accession['sequence']
 
