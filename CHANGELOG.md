@@ -1,3 +1,12 @@
+## [0.4.1](https://github.com/mycolab/genbank/compare/v0.4.0...v0.4.1) (2022-01-31)
+
+
+### Bug Fixes
+
+* **sequence:** handle non-existent accession ([d297c72](https://github.com/mycolab/genbank/commit/d297c72b1132ec1e615e33fb4313d9de0e32fec2))
+
+
+
 # [0.4.0](https://github.com/mycolab/genbank/compare/v0.3.2...v0.4.0) (2022-01-14)
 
 
@@ -38,15 +47,6 @@
 ### Features
 
 * **api:** conditionally remove alignment gaps ([d77e09e](https://github.com/mycolab/genbank/commit/d77e09e06bc3c84d8bd85f35b80b164b94c9ba41))
-
-
-
-## [0.2.3](https://github.com/mycolab/genbank/compare/v0.2.2...v0.2.3) (2022-01-12)
-
-
-### Bug Fixes
-
-* **docker:** empty line ([b67e9dd](https://github.com/mycolab/genbank/commit/b67e9ddca64f5ff5a6f603a85eac58fdae6144d3))
 
 
 
