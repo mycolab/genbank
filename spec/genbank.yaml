@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: MycoLab Genbank API
-  description: Genbank API for searching and submitting sequences
+  description: Search and manage genome sequences
   termsOfService: https://mycolab.org/terms/
   contact:
     email: developers@mycolab.org
@@ -21,11 +21,11 @@ tags:
     description: Find out more
     url: https://mycolab.org/sequences
 paths:
-  /sequences:
+  /query:
     post:
       tags:
       - sequences
-      summary: Submit a FASTA query
+      summary: Submit a sequence query
       operationId: api.sequence.query
       requestBody:
         description: Sequence object
@@ -50,7 +50,7 @@ paths:
   /sequence:
     post:
       tags:
-      - sequence
+      - sequences
       summary: Add a new sequence
       operationId: api.sequence.post
       requestBody:
@@ -74,7 +74,7 @@ paths:
   /sequence/{id}:
     put:
       tags:
-        - sequence
+        - sequences
       summary: Update an existing sequence
       operationId: api.sequence.put
       parameters:
@@ -104,7 +104,7 @@ paths:
       x-codegen-request-body-name: body
     get:
       tags:
-      - sequence
+      - sequences
       summary: Find sequence by ID
       description: Returns a single sequence
       operationId: api.sequence.get
@@ -130,7 +130,7 @@ paths:
           content: {}
     delete:
       tags:
-      - sequence
+      - sequences
       summary: Deletes a sequence
       operationId: api.sequence.delete
       parameters:
@@ -180,6 +180,8 @@ components:
           example: "41.154688"
     Location:
       type: object
+      required:
+        - country
       description: Location where specimen was collected
       properties:
         coordinates:
@@ -232,7 +234,7 @@ components:
     FASTASequence:
       type: string
       description: Sequence in FASTA format
-      example: ACTAtGttGCCTtGGCAGGCTGGCAGCAGCCTGCCGGTGGACCTCAACTCTTGAATCTCTGCtGTCTGAGTACTATATAATAGTTAAAACTTTCAACAACGGATCTCTTGGTTCTGGCATCGATGAAGAACGCAGCGAAATGCGATAAGTAATGTGAATTGCAGAATTCAGTGAATCATCGAATCTTTGAACGCACATTGCGCCCTCTGGTATTCCAGGGGGCATGCCTGTTCGAGCGTCATTACAACCCTCACGCCTAGCGTGGTCTTGGGCTCGCCCTGTAGGGCCTGCCTCAAAGTCAGTGGCGGCGTCATCTGACCCCTAAGCGTAGTAACATACACCTCGCTTTTGGGCGCTGGATGGAGGCCTGCTATGAACCCCCCATTTTACAGGTTGACCTCGGATCAGGTAGGGATACCCGCTGAACTTAAG
+      example: 'ACTAtGttGCCTtGGCAGGCTGGCAGCAGCCTGCCGGTGGACCTCAACTCTTGAATCTCTGCtGTCTGAGTACTATATAATAGTTAAAACTTTCAACAACGGATCTCTTGGTTCTGGCATCGATGAAGAACGCAGCGAAATGCGATAAGTAATGTGAATTGCAGAATTCAGTGAATCATCGAATCTTTGAACGCACATTGCGCCCTCTGGTATTCCAGGGGGCATGCCTGTTCGAGCGTCATTACAACCCTCACGCCTAGCGTGGTCTTGGGCTCGCCCTGTAGGGCCTGCCTCAAAGTCAGTGGCGGCGTCATCTGACCCCTAAGCGTAGTAACATACACCTCGCTTTTGGGCGCTGGATGGAGGCCTGCTATGAACCCCCCATTTTACAGGTTGACCTCGGATCAGGTAGGGATACCCGCTGAACTTAAG'
     FASTAMatch:
       type: number
       description: Match accuracy
@@ -276,6 +278,7 @@ components:
     Sequence:
       required:
       - name
+      - location
       type: object
       properties:
         name:
