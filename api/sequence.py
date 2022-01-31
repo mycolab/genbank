@@ -5,6 +5,7 @@ import yaml
 import xmltodict
 import logging
 from subprocess import Popen, PIPE
+from xml.parsers.expat import ExpatError
 
 
 def log_results(results: list):
@@ -131,10 +132,17 @@ def load_accessions(blast_results: dict) -> list:
     return accessions
 
 
-def fetch_accession(xml_file: str, accession_id: str):
-    efetch_command = f'/usr/local/bin/efetch -db nuccore -id {accession_id} -format gb -mode xml > {xml_file}'
-    command_results = execute([efetch_command])
-    log_results(command_results)
+def fetch_accession(xml_file: str, accession_id: str) -> int:
+    try:
+        efetch_command = f'/usr/local/bin/efetch -db nuccore -id {accession_id} -format gb -mode xml > {xml_file}'
+        command_results = execute([efetch_command])
+        log_results(command_results)
+        resp_code = 0
+    except SystemExit as e:
+        logging.warning(str(e))
+        resp_code = 1
+
+    return resp_code
 
 
 def clean_fasta(fasta_sequence: str, remove_gaps: bool = True) -> dict:
@@ -228,7 +236,7 @@ def country_search(countries: dict = None, location_data: str = None) -> str:
                     break
 
     if country == '':
-        logging.warn(f'NO COUNTRY DATA FOUND: {location_data}')
+        logging.warning(f'NO COUNTRY DATA FOUND: {location_data}')
     else:
         country = f'~{country}'
 
@@ -258,50 +266,62 @@ def load_fasta(id: str, accessions: list, add_location: bool = True, remove_gaps
 
         xml_file = f'/blast/fasta/{id}.{accession_id}.xml'
         json_file = f'/blast/fasta/{id}.{accession_id}.json'
-        fetch_accession(xml_file, accession_id)
-        a_object = load_xml(xml_file)
-        write_json(a_object, json_file)
+
+        skip = False
+        # fetch accession from Genbank
+        if fetch_accession(xml_file, accession_id) > 0:
+            skip = True
+
+        # load results to a_object
+        a_object = {}
+        if not skip:
+            try:
+                a_object = load_xml(xml_file)
+                write_json(a_object, json_file)
+            except ExpatError as e:
+                logging.warning(str(e))
+                skip = True
 
         # create fasta dictionary
-        try:
-            organism = a_object['GBSet']['GBSeq']['GBSeq_organism']
-            description = f'{accession_id} {organism}'
+        if not skip:
+            try:
+                organism = a_object['GBSet']['GBSeq']['GBSeq_organism']
+                description = f'{accession_id} {organism}'
 
-            if add_location:
-                location = None
-                qualifiers = a_object[
-                    'GBSet']['GBSeq']['GBSeq_feature-table']['GBFeature'][0]['GBFeature_quals']['GBQualifier']
-                for qualifier in qualifiers:
-                    if 'country' in qualifier.get('GBQualifier_name'):
-                        location = qualifier.get('GBQualifier_value')
-                        if location != '' and location is not None:
-                            break
+                if add_location:
+                    location = None
+                    qualifiers = a_object[
+                        'GBSet']['GBSeq']['GBSeq_feature-table']['GBFeature'][0]['GBFeature_quals']['GBQualifier']
+                    for qualifier in qualifiers:
+                        if 'country' in qualifier.get('GBQualifier_name'):
+                            location = qualifier.get('GBQualifier_value')
+                            if location != '' and location is not None:
+                                break
 
-                if location is None or location == '':
-                    location = country_search(countries=countries, location_data=json.dumps(a_object))
+                    if location is None or location == '':
+                        location = country_search(countries=countries, location_data=json.dumps(a_object))
 
-                if location:
-                    description += f' {location}'
+                    if location:
+                        description += f' {location}'
 
-            sequence = accession['sequence']
+                sequence = accession['sequence']
 
-            # remove gaps, conditionally
-            sequence = clean_fasta(sequence, remove_gaps=remove_gaps).get('sequence')
+                # remove gaps, conditionally
+                sequence = clean_fasta(sequence, remove_gaps=remove_gaps).get('sequence')
 
-            # add fasta to results
-            fasta = {'description': description, 'sequence': sequence}
-            fastas.append(fasta)
+                # add fasta to results
+                fasta = {'description': description, 'sequence': sequence}
+                fastas.append(fasta)
 
-        except KeyError as e:
-            logging.error(f'{e}')
-            continue
+            except KeyError as e:
+                logging.error(f'{e}')
 
         # clean up files
         for file in [xml_file, json_file]:
             if os.path.exists(file):
                 os.remove(file)
             else:
-                logging.warn(f'file does not exist: {file}')
+                logging.warning(f'file does not exist: {file}')
 
     return fastas
 
@@ -384,8 +404,8 @@ def query(body: dict = None, **kwargs):
 
     # set blastn options
     word_size = 28
-    output_format = 15
-    database = 'nt'
+    output_format = 15  # JSON
+    database = 'nt'     # nucleotide
     o_file = f'/blast/fasta/{id}.json'
     option_list = [
         '-remote',
@@ -402,7 +422,6 @@ def query(body: dict = None, **kwargs):
     # execute blast query
     blastn_command = f'/usr/local/bin/blastn {options}'
     logging.debug(blastn_command)
-
     command_results = execute([blastn_command])
     log_results(command_results)
 
@@ -431,7 +450,7 @@ def query(body: dict = None, **kwargs):
         if os.path.exists(file):
             os.remove(file)
         else:
-            logging.warn(f'file does not exist: {file}')
+            logging.warning(f'file does not exist: {file}')
 
     return resp, 200
 
