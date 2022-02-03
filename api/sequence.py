@@ -207,6 +207,7 @@ def country_search(countries: dict = None, location_data: str = None) -> str:
     """
 
     country = ''
+    approx_char = '*'
 
     if countries:
 
@@ -232,13 +233,13 @@ def country_search(countries: dict = None, location_data: str = None) -> str:
                 alpha_3 = value.get('alpha_3')
 
                 if f' {alpha_3} ' in location_data or f'{alpha_3}:' in location_data:
-                    country = f'~{key}'
+                    country = f'{approx_char}{key}'
                     break
 
     if country == '':
         logging.warning(f'NO COUNTRY DATA FOUND: {location_data}')
     else:
-        country = f'~{country}'
+        country = f'{approx_char}{country}'
 
     return country
 
