@@ -5,9 +5,11 @@ Afghanistan:
 Aland Islands:
   alts:
     - Åland Islands
-    - Åland Is.
     - Aland Islands
+    - Åland Is.
     - Aland Is.
+    - Åland Is
+    - Aland Is
   alpha_2: AX
   alpha_3: ALA
   numberic: 248
@@ -213,13 +215,14 @@ China:
 Christmas Island:
   alts:
     - Christmas Is.
-    - Christmas
+    - Christmas Is
   alpha_2: CX
   alpha_3: CXR
   numberic: 162
 Cocos Islands:
   alts:
     - Cocos Is.
+    - Cocos Is
     - Cocos
     - Keeling
   alpha_2: CC
@@ -447,6 +450,8 @@ Heard Island:
     - Heard Is.
     - McDonald Islands
     - McDonald Is.
+    - Heard Is
+    - McDonald Is
   alpha_2: HM
   alpha_3: HMD
   numberic: 334
@@ -542,6 +547,7 @@ North Korea:
     - N. Korea
     - Democratic People's Republic of Korea
     - People's Republic of Korea
+    - N Korea
     - DPRK
   alpha_2: KP
   alpha_3: PRK
@@ -550,6 +556,7 @@ South Korea:
   alts:
     - S. Korea
     - Republic of Korea
+    - S Korea
   alpha_2: KR
   alpha_3: KOR
   numberic: 410
@@ -631,6 +638,7 @@ Marshall Islands:
   alts:
     - Marshall Island
     - Marshall Is.
+    - Marshall Is
   alpha_2: MH
   alpha_3: MHL
   numberic: 584
@@ -737,6 +745,7 @@ Niue:
 Norfolk Island:
   alts:
     - Norfolk Is.
+    - Norfolk Is
   alpha_2: NF
   alpha_3: NFK
   numberic: 574
@@ -746,6 +755,8 @@ Northern Mariana Islands:
     - N. Marina Is.
     - Marina Islands
     - Marina Is.
+    - N. Marina Is
+    - Marina Is
   alpha_2: MP
   alpha_3: MNP
   numberic: 580
@@ -961,6 +972,7 @@ Slovenia:
 Solomon Islands:
   alts:
     - Solomon Is.
+    - Solomon Is
   alpha_2: SB
   alpha_3: SLB
   numberic: 090
@@ -977,9 +989,12 @@ South Africa:
 South Georgia:
   alts:
     - S. Georgia
+    - S Georgia
     - South Sandwich Islands
     - S. Sandwich Islands
     - S. Sandwich Is.
+    - S. Sandwich Is
+    - S Sandwich Is
   alpha_2: GS
   alpha_3: SGS
   numberic: 239
@@ -1086,6 +1101,7 @@ Turks:
   alts:
     - Caicos Islands
     - Caicos Is.
+    - Caicos Is
   alpha_2: TC
   alpha_3: TCA
   numberic: 796
@@ -1122,6 +1138,7 @@ United States Minor Outlying Islands:
   alts:
     - US Minor Outlying Islands
     - US Minor Outlying Is.
+    - US Minor Outlying Is
   alpha_2: UM
   alpha_3: UMI
   numberic: 581
@@ -1129,6 +1146,7 @@ USA:
   alts:
     - United States of America
     - United States
+    - U.S.A.
     - America
   alpha_2: US
   alpha_3: USA
@@ -1162,18 +1180,20 @@ Vietnam:
 British Virgin Islands:
   alts:
     - Virgin Islands (British)
+    - Virgin Islands, British
   alpha_2: VG
   alpha_3: VGB
   numberic: 092
 US Virgin Islands:
   alts:
     - U.S. Virgin Islands
-    - Virgin Islands (US)
+    - US Virgin Islands
     - Virgin Islands (USA)
-    - Virgin Islands (U.S.A.)
-    - Virgin Islands (U.S.A.)
+    - Virgin Islands (US)
+    - Virgin Islands, US
     - Virgin Islands
     - Virgin Is.
+    - Virgin Is
   alpha_2: VI
   alpha_3: VIR
   numberic: 850
