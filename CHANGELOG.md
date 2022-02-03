@@ -1,3 +1,12 @@
+## [0.4.2](https://github.com/mycolab/genbank/compare/v0.4.1...v0.4.2) (2022-02-03)
+
+
+### Bug Fixes
+
+* **genbank:** added "*" as approximation char instead of "~" ([75ab10e](https://github.com/mycolab/genbank/commit/75ab10e9f2b6a222b1dc280c52e70cd514b77816))
+
+
+
 ## [0.4.1](https://github.com/mycolab/genbank/compare/v0.4.0...v0.4.1) (2022-01-31)
 
 
@@ -38,15 +47,6 @@
 ### Bug Fixes
 
 * **api:** add MycoLab stamp (conditionally) ([d111194](https://github.com/mycolab/genbank/commit/d1111948da262d57401166894f3cfef26bea0c97))
-
-
-
-# [0.3.0](https://github.com/mycolab/genbank/compare/v0.2.3...v0.3.0) (2022-01-13)
-
-
-### Features
-
-* **api:** conditionally remove alignment gaps ([d77e09e](https://github.com/mycolab/genbank/commit/d77e09e06bc3c84d8bd85f35b80b164b94c9ba41))
 
 
 
