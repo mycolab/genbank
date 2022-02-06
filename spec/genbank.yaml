@@ -275,6 +275,10 @@ components:
           type: boolean
           description: 'Add MycoLab stamp to query FASTA description (default: true)'
           example: true
+        accession:
+           type: boolean
+           description: 'Add full accession record to FASTA object'
+           example: true
     Sequence:
       required:
       - name
