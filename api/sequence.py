@@ -244,13 +244,19 @@ def country_search(countries: dict = None, location_data: str = None) -> str:
     return country
 
 
-def load_fasta(id: str, accessions: list, add_location: bool = True, remove_gaps: bool = True) -> list:
+def load_fasta(
+        id: str,
+        accessions: list,
+        add_location: bool = True,
+        remove_gaps: bool = True,
+        include_accession: bool = False) -> list:
     """
     Return list of fasta dictionaries from accessions
     :param id:
-    :param accessions:
+    :param accessions: list of accession ids
     :param add_location:
     :param remove_gaps:
+    :param include_accession:
     :return:
     """
 
@@ -291,8 +297,7 @@ def load_fasta(id: str, accessions: list, add_location: bool = True, remove_gaps
 
                 if add_location:
                     location = None
-                    qualifiers = a_object[
-                        'GBSet']['GBSeq']['GBSeq_feature-table']['GBFeature'][0]['GBFeature_quals']['GBQualifier']
+                    qualifiers = a_object['GBSet']['GBSeq']['GBSeq_feature-table']['GBFeature'][0]['GBFeature_quals']['GBQualifier']
                     for qualifier in qualifiers:
                         if 'country' in qualifier.get('GBQualifier_name'):
                             location = qualifier.get('GBQualifier_value')
@@ -303,6 +308,7 @@ def load_fasta(id: str, accessions: list, add_location: bool = True, remove_gaps
                         location = country_search(countries=countries, location_data=json.dumps(a_object))
 
                     if location:
+                        a_object['location'] = location
                         description += f' {location}'
 
                 sequence = accession['sequence']
@@ -311,7 +317,11 @@ def load_fasta(id: str, accessions: list, add_location: bool = True, remove_gaps
                 sequence = clean_fasta(sequence, remove_gaps=remove_gaps).get('sequence')
 
                 # add fasta to results
-                fasta = {'description': description, 'sequence': sequence}
+                if include_accession:
+                    fasta = {'description': description, 'sequence': sequence, 'accession': a_object}
+                else:
+                    fasta = {'description': description, 'sequence': sequence}
+
                 fastas.append(fasta)
 
             except KeyError as e:
@@ -384,7 +394,10 @@ def query(body: dict = None, **kwargs):
     # alignment gap removal
     remove_gaps = body.get('clean', True)
 
-    # mycolab stamp
+    # include accession in FASTA object
+    include_accession = body.get('accession', False)
+
+    # add mycolab stamp
     add_stamp = body.get('stamp', True)
 
     # maximum results
@@ -431,7 +444,7 @@ def query(body: dict = None, **kwargs):
     accessions = load_accessions(blast_results)
 
     # load fasta from accessions
-    resp = load_fasta(id, accessions, add_location=add_location, remove_gaps=remove_gaps)
+    resp = load_fasta(id, accessions, add_location=add_location, remove_gaps=remove_gaps, include_accession=include_accession)
 
     # conditionally add MycoLab stamp
     if add_stamp:
