@@ -311,7 +311,8 @@ def load_fasta(
                         a_object['location'] = location
                         description += f' {location}'
 
-                sequence = accession['sequence']
+                # sequence = accession['sequence']
+                sequence = a_object['GBSet']['GBSeq']['GBSeq_sequence']
 
                 # remove gaps, conditionally
                 sequence = clean_fasta(sequence, remove_gaps=remove_gaps).get('sequence')
