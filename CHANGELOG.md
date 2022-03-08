@@ -1,3 +1,12 @@
+## [0.5.1](https://github.com/mycolab/genbank/compare/v0.5.0...v0.5.1) (2022-03-08)
+
+
+### Bug Fixes
+
+* **api:** fetching consistent and complete sequence from accession ([ef695be](https://github.com/mycolab/genbank/commit/ef695be4ba5b862c77af590a1a136504d0ec1136))
+
+
+
 # [0.5.0](https://github.com/mycolab/genbank/compare/v0.4.2...v0.5.0) (2022-02-06)
 
 
@@ -36,17 +45,6 @@
 ### Features
 
 * **sequences:** Country of origin approximation on location_add=True ([f187b93](https://github.com/mycolab/genbank/commit/f187b93aff9c4a091a52539df311a306e22d068d))
-
-
-
-## [0.3.2](https://github.com/mycolab/genbank/compare/v0.3.1...v0.3.2) (2022-01-13)
-
-
-### Bug Fixes
-
-* **api:** corrected comment re: stamp ([5829e39](https://github.com/mycolab/genbank/commit/5829e39afee97c2ed1ff556c23e7ca0313335277))
-* **api:** corrected comment re: stamp ([c2beeb2](https://github.com/mycolab/genbank/commit/c2beeb21de73bc4cb8cef6f60caf7b9954fb30cd))
-* **api:** persist orginal query to disk ([bc6223b](https://github.com/mycolab/genbank/commit/bc6223bda6f3067c28154647fcc982567b9c7edc))
 
 
 
