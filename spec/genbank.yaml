@@ -291,9 +291,9 @@ components:
           type: string
           description: 'sort direction of blast'
           example: 'desc'
-        min_coverage:
+        coverage:
           type: number
-          description: 'sort direction of blast'
+          description: 'minimum query coverage'
           example: 70.0
 
     Sequence:
