@@ -1,3 +1,12 @@
+# [0.6.0](https://github.com/mycolab/genbank/compare/v0.5.1...v0.6.0) (2022-03-11)
+
+
+### Features
+
+* **api:** sort by any key of HSP, asc or desc (default: pct_identity, desc) ([2c06c7e](https://github.com/mycolab/genbank/commit/2c06c7e718f39875c8fdcef5581728ec279c04c8))
+
+
+
 ## [0.5.1](https://github.com/mycolab/genbank/compare/v0.5.0...v0.5.1) (2022-03-08)
 
 
@@ -31,20 +40,6 @@
 ### Bug Fixes
 
 * **sequence:** handle non-existent accession ([d297c72](https://github.com/mycolab/genbank/commit/d297c72b1132ec1e615e33fb4313d9de0e32fec2))
-
-
-
-# [0.4.0](https://github.com/mycolab/genbank/compare/v0.3.2...v0.4.0) (2022-01-14)
-
-
-### Bug Fixes
-
-* **genbank:** added country dictionary ([7d40a4a](https://github.com/mycolab/genbank/commit/7d40a4acfc9e236965e4e0259ae6e8b45f7e3e6f))
-
-
-### Features
-
-* **sequences:** Country of origin approximation on location_add=True ([f187b93](https://github.com/mycolab/genbank/commit/f187b93aff9c4a091a52539df311a306e22d068d))
 
 
 
