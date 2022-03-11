@@ -277,8 +277,25 @@ components:
           example: true
         accession:
            type: boolean
-           description: 'Add full accession record to FASTA object'
+           description: 'Add accession record to FASTA object'
            example: true
+        hsp:
+          type: boolean
+          description: 'Add HSP record to FASTA object'
+          example: true
+        sort_key:
+          type: string
+          description: 'sort blast results by key'
+          example: 'pct_identity'
+        sort_dir:
+          type: string
+          description: 'sort direction of blast'
+          example: 'desc'
+        min_coverage:
+          type: number
+          description: 'sort direction of blast'
+          example: 70.0
+
     Sequence:
       required:
       - name
