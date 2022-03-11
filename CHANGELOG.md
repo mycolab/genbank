@@ -1,3 +1,12 @@
+## [0.6.1](https://github.com/mycolab/genbank/compare/v0.6.0...v0.6.1) (2022-03-11)
+
+
+### Bug Fixes
+
+* **api:** corrected coverage param name in spec ([f9208a6](https://github.com/mycolab/genbank/commit/f9208a64909bcdd113d70913e67a1989675cfa46))
+
+
+
 # [0.6.0](https://github.com/mycolab/genbank/compare/v0.5.1...v0.6.0) (2022-03-11)
 
 
@@ -31,15 +40,6 @@
 ### Bug Fixes
 
 * **genbank:** added "*" as approximation char instead of "~" ([75ab10e](https://github.com/mycolab/genbank/commit/75ab10e9f2b6a222b1dc280c52e70cd514b77816))
-
-
-
-## [0.4.1](https://github.com/mycolab/genbank/compare/v0.4.0...v0.4.1) (2022-01-31)
-
-
-### Bug Fixes
-
-* **sequence:** handle non-existent accession ([d297c72](https://github.com/mycolab/genbank/commit/d297c72b1132ec1e615e33fb4313d9de0e32fec2))
 
 
 
