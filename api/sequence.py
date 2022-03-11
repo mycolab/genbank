@@ -4,6 +4,7 @@ import json
 import yaml
 import xmltodict
 import logging
+from operator import itemgetter
 from subprocess import Popen, PIPE
 from xml.parsers.expat import ExpatError
 
@@ -104,17 +105,19 @@ def write_file(file: str, lines: list):
     f.close()
 
 
-def load_accessions(blast_results: dict) -> list:
+def load_blast_hits(blast_results: dict) -> list:
     """
     Return list of accession dictionaries from blastn results
     :param blast_results:
     :return:
     """
+
     report = blast_results['BlastOutput2'][0]['report']
     hits = report['results']['search']['hits']
+    query_len = report['results']['search']['query_len']
 
     # build accessions from hits
-    accessions = []
+    blast_hits = []
     for hit in hits:
         accession_number = hit['description'][0]['accession']
         accession_ids = str(hit['description'][0]['id']).split('|')
@@ -124,12 +127,23 @@ def load_accessions(blast_results: dict) -> list:
                 accession_id = element
 
         description = hit['description'][0]['title']
-        hit_sequence = hit['hsps'][0]['hseq']
-        accession = {'id': accession_id, 'description': description, 'sequence': hit_sequence}
-        logging.debug(json.dumps(accession))
-        accessions.append(accession)
+        hsp = hit['hsps'][0]
+        align_len = hsp['align_len']
+        identity = hsp['identity']
+        gaps = hsp['gaps']
 
-    return accessions
+        blast_hit = {
+            'id': accession_id,
+            'description': description,
+            'pct_identity': (identity / align_len) * 100,
+            'coverage': ((align_len - gaps) / query_len) * 100,
+            **hsp
+        }
+
+        logging.debug(json.dumps(blast_hit))
+        blast_hits.append(blast_hit)
+
+    return blast_hits
 
 
 def fetch_accession(xml_file: str, accession_id: str) -> int:
@@ -246,17 +260,19 @@ def country_search(countries: dict = None, location_data: str = None) -> str:
 
 def load_fasta(
         id: str,
-        accessions: list,
+        blast_hits: list,
         add_location: bool = True,
         remove_gaps: bool = True,
-        include_accession: bool = False) -> list:
+        include_accession: bool = False,
+        include_hsp: bool = False) -> list:
     """
-    Return list of fasta dictionaries from accessions
+    Return list of fasta dictionaries from blast hits
     :param id:
-    :param accessions: list of accession ids
+    :param blast_hits: list of blast hits
     :param add_location:
     :param remove_gaps:
     :param include_accession:
+    :param include_hsp:
     :return:
     """
 
@@ -268,8 +284,9 @@ def load_fasta(
         countries = load_countries()
 
     # run efetch to pull all accession details
-    for accession in accessions:
-        accession_id = accession['id']
+    for blast_hit in blast_hits:
+        accession_id = blast_hit.get('id')
+        hsp = {**blast_hit}
 
         xml_file = f'/blast/fasta/{id}.{accession_id}.xml'
         json_file = f'/blast/fasta/{id}.{accession_id}.json'
@@ -311,17 +328,20 @@ def load_fasta(
                         a_object['location'] = location
                         description += f' {location}'
 
-                # sequence = accession['sequence']
+                # full sequence
                 sequence = a_object['GBSet']['GBSeq']['GBSeq_sequence']
 
                 # remove gaps, conditionally
                 sequence = clean_fasta(sequence, remove_gaps=remove_gaps).get('sequence')
 
                 # add fasta to results
+                fasta = {'description': description, 'sequence': sequence}
+
                 if include_accession:
-                    fasta = {'description': description, 'sequence': sequence, 'accession': a_object}
-                else:
-                    fasta = {'description': description, 'sequence': sequence}
+                    fasta = {**fasta, 'accession': a_object}
+
+                if include_hsp:
+                    fasta = {**fasta, 'hsp': hsp}
 
                 fastas.append(fasta)
 
@@ -363,6 +383,63 @@ def mycolab_stamp(description: str, mycolab_id: str = None) -> str:
     return description
 
 
+def sort_blast_hits(blast_hits: list = None, sort_keys: list = None, direction: str = 'desc'):
+    """
+    Sort blast hits
+    :param blast_hits: list of blast hit objects
+    :param sort_keys: list of object keys names
+    :param direction: string: 'asc' or 'desc'
+    :return:
+    """
+
+    dir_map = {
+        'asc': False,
+        'desc': True
+    }
+
+    sorted_blast_list = blast_hits
+
+    for sort_key in sort_keys:
+        sorted_blast_list = sorted(sorted_blast_list, key=itemgetter(sort_key), reverse=dir_map[direction])
+
+    return sorted_blast_list
+
+
+def filter_blast_hits(blast_hits: list = None, filter_objs: list = None):
+    """
+    Sort blast hits
+    :param blast_hits: list of blast hit objects
+    :param filter_objs: list of filter objects
+    :return:
+    """
+
+    if not filter_objs:
+        filter_objs = [
+            {
+                'key': 'coverage',
+                'min': 70
+            }
+        ]
+
+    filtered_blast_list = blast_hits
+
+    for f in filter_objs:
+        k = f['key']
+        if 'min' in f.keys():
+            f_min = f['min']
+            if 'max' in f.keys():
+                f_max = f['max']
+                filtered_blast_list = list(filter(lambda b: f_min <= b[k] <= f_max, blast_hits))
+            else:
+                filtered_blast_list = list(filter(lambda b: f_min <= b[k], blast_hits))
+        else:
+            v = f['value']
+            m = f.get('mod', None)
+            filtered_blast_list = list(filter(lambda b: b[k] + m in v if m is not None else b[k] in v, blast_hits))
+
+    return filtered_blast_list
+
+
 def query(body: dict = None, **kwargs):
     """
     Query Genbank for matching sequences
@@ -398,6 +475,9 @@ def query(body: dict = None, **kwargs):
     # include accession in FASTA object
     include_accession = body.get('accession', False)
 
+    # include blast hsp in FASTA object
+    include_hsp = body.get('hsp', False)
+
     # add mycolab stamp
     add_stamp = body.get('stamp', True)
 
@@ -405,7 +485,16 @@ def query(body: dict = None, **kwargs):
     max_results = body.get('results', 50)
 
     # minimum identity match
-    min_match = body.get('match', 90)
+    min_match = body.get('match', 90.0)
+
+    # sort results by key
+    sort_key = body.get('sort_key', 'pct_identity')
+
+    # sort direction
+    sort_dir = body.get('sort_dir', 'desc')
+
+    # minimum coverage
+    min_coverage = body.get('coverage', 70.0)
 
     # clean fasta query
     query_fasta = clean_fasta(body.get('sequence'), remove_gaps=remove_gaps)
@@ -442,10 +531,19 @@ def query(body: dict = None, **kwargs):
 
     # load accessions from blast output
     blast_results = load_json(o_file)
-    accessions = load_accessions(blast_results)
+    blast_hits = load_blast_hits(blast_results)
+    blast_hits = sort_blast_hits(blast_hits, sort_keys=[sort_key], direction=sort_dir)
+    blast_hits = filter_blast_hits(blast_hits, filter_objs=[{'key': 'coverage', 'min': min_coverage}])
 
     # load fasta from accessions
-    resp = load_fasta(id, accessions, add_location=add_location, remove_gaps=remove_gaps, include_accession=include_accession)
+    resp = load_fasta(
+        id,
+        blast_hits,
+        add_location=add_location,
+        remove_gaps=remove_gaps,
+        include_accession=include_accession,
+        include_hsp=include_hsp
+    )
 
     # conditionally add MycoLab stamp
     if add_stamp:
